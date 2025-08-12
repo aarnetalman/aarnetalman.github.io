@@ -1,3 +1,535 @@
----
-layout: front
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website of Dr. Aarne Talman — Research in Natural Language Processing, Computational Linguistics, and AI">
+  <title>Dr. Aarne Talman | AI & Computational Linguistics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="https://taman.ai" class="logo">Aarne Talman</a>
+        <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#career">Career</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="particles-canvas-wrapper">
+        <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">Computational Linguist & NLP Researcher</div>
+        <h1 class="hero-title">Dr. Aarne Talman</h1>
+        <p class="hero-subtitle">
+          Bridging formal computational models with AI and machine learning to build systems that truly understand language.
+        </p>
+        <div class="hero-cta">
+          <a href="#research" class="btn btn-primary">Explore Research</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-badge">About Me</div>
+      <h2 class="section-title">Research and Impact</h2>
+      <p class="section-subtitle">
+        I'm a researcher in natural language processing and computational linguistics, working at the intersection of formal semantics, grammar, and AI.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="feature-card fade-in">
+        <div class="feature-icon">
+          <!-- Icon: Cube -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Formal Foundations</h3>
+        <p class="feature-description">
+          I investigate formal models of grammar and semantics to understand how meaning is composed in natural language.
+        </p>
+      </div>
+
+      <div class="feature-card fade-in">
+        <div class="feature-icon">
+          <!-- Icon: Zap -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Machine Learning</h3>
+        <p class="feature-description">
+          I train, apply and evaluate statistical and neural methods—particularly large language models—on tasks that require understanding, reasoning, and generalization.
+        </p>
+      </div>
+
+      <div class="feature-card fade-in">
+        <div class="feature-icon">
+          <!-- Icon: Target -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="6"/>
+            <circle cx="12" cy="12" r="2"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Research Philosophy</h3>
+        <p class="feature-description">
+          I believe in research that balances theoretical depth with practical relevance, aiming to produce insights that endure and systems that work.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research Section -->
+<section class="section section-alt" id="research">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-badge">Research Areas</div>
+      <h2 class="section-title">My Focus Areas</h2>
+      <p class="section-subtitle">
+        I explore core challenges at the intersection of language, logic, and learning—combining formal and statistical approaches to build systems that understand and reason with language.
+      </p>
+    </div>
+
+    <div class="research-areas">
+      <div class="research-tag fade-in">
+        <h4>Language Understanding</h4>
+        <p>Developing models that move beyond pattern matching toward deep semantic interpretation and contextual understanding.</p>
+      </div>
+
+      <div class="research-tag fade-in">
+        <h4>Formal & Computational Linguistics</h4>
+        <p>Exploring grammar, meaning, and compositionality through symbolic and logic-based frameworks.</p>
+      </div>
+
+      <div class="research-tag fade-in">
+        <h4>Reasoning & Inference</h4>
+        <p>Designing systems that perform structured reasoning, entailment, and generalization in real-world settings.</p>
+      </div>
+
+      <div class="research-tag fade-in">
+        <h4>Large Language Models</h4>
+        <p>Interrogating the capabilities and limitations of LLMs in tasks involving meaning, structure, and generalization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Career & Activities Section -->
+<section class="section section-alt" id="career">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-badge">Career & Activities</div>
+      <h2 class="section-title">Professional Roles</h2>
+      <p class="section-subtitle">
+        A blend of industry leadership, academic research, and AI-driven entrepreneurship.
+      </p>
+    </div>
+
+    <div class="career-grid">
+      <div class="career-card fade-in">
+        <h3 class="career-role">Data & AI Senior Manager</h3>
+        <p class="career-meta">Accenture · Helsinki, Finland</p>
+        <p class="career-description">
+          I lead the <strong>Machine Learning and Computational Science</strong> practice and the <strong>Model Customization</strong> capability at the <em>EMEA Centre for Advanced AI</em>.
+          <br><br>
+          My work focuses on deploying and adapting cutting-edge AI models for enterprise use cases, enabling organizations to operationalize AI with trust, transparency, and performance in mind.
+        </p>
+      </div>
+
+      <div class="career-card fade-in">
+        <h3 class="career-role">Visiting Scholar</h3>
+        <p class="career-meta">University of Helsinki · Helsinki, Finland</p>
+        <p class="career-description">
+          Continuing research in <strong>natural language understanding</strong>—connecting formal semantics with deep learning methods.
+          <br><br>
+          My academic work explores how meaning is composed and represented in human language, with a focus on integrating symbolic frameworks and neural models.
+        </p>
+      </div>
+
+      <div class="career-card fade-in">
+        <h3 class="career-role">Founder</h3>
+        <p class="career-meta">
+          <a href="https://muves.io" class="career-link" target="_blank" rel="noopener noreferrer">Muves</a> &nbsp;|&nbsp;
+          <a href="https://basement.ai" class="career-link" target="_blank" rel="noopener noreferrer">Basement AI</a>
+        </p>
+        <p class="career-description">
+          Building <a href="https://muves.io" target="_blank" rel="noopener noreferrer" class="career-link"><strong>Muves</strong></a> — an AI-powered workspace for collecting, organizing, and understanding the latest in AI research. Backed by your personal Research Assistant.
+          <br><br>
+          Leading <a href="https://basement.ai" target="_blank" rel="noopener noreferrer" class="career-link"><strong>Basement AI</strong></a> — an independent R&D lab and venture builder focused on advanced natural language processing, computational linguistics, and AI research.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Publications Section -->
+    <section class="section" id="publications">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-badge">Publications</div>
+                <h2 class="section-title">Recent Work</h2>
+                <p class="section-subtitle">
+                    My latest contributions to the field of computational linguistics and natural language processing.
+                </p>
+            </div>
+            
+            <div class="publications-grid">
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://ceur-ws.org/Vol-3740/paper-67.pdf" target="_blank">ELOQUENT 2024 — Robustness Task</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2024</span> Sahlgren, Karlgren, Dürlich, Gogoulou, <strong>Talman</strong>, Zahra · CLEF
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://ceur-ws.org/Vol-3740/paper-67.pdf" target="_blank" class="publication-link">PDF</a>
+                            <a href="files/topical_quiz_2024.bib" class="publication-link">BibTeX</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://ceur-ws.org/Vol-3740/paper-65.pdf" target="_blank">ELOQUENT 2024 - Topical Quiz Task</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2024</span> Karlgren, <strong>Talman</strong> · CLEF
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://ceur-ws.org/Vol-3740/paper-65.pdf" target="_blank" class="publication-link">PDF</a>
+                            <a href="files/topical_quiz_2024.bib" class="publication-link">BibTeX</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://ceur-ws.org/Vol-3740/paper-225.pdf" target="_blank">Voight-Kampff Task @ PAN and ELOQUENT 2024</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2024</span> Bevendorf et al., including <strong>Talman</strong> · CLEF
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://ceur-ws.org/Vol-3740/paper-225.pdf" target="_blank" class="publication-link">PDF</a>
+                            <a href="files/voight-kampff_2024.bib" class="publication-link">BibTeX</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://doi.org/10.1007/978-3-031-56069-9_63" target="_blank">ELOQUENT CLEF Shared Tasks</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2024</span> Karlgren et al., including <strong>Talman</strong> · ECIR
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1007/978-3-031-56069-9_63" target="_blank" class="publication-link">DOI</a>
+                            <a href="files/ECIR_ELOQUENT.bib" class="publication-link">BibTeX</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://aclanthology.org/2023.nodalida-1.37/" target="_blank">Uncertainty-Aware Natural Language Inference with Stochastic Weight Averaging</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2023</span> <strong>Talman</strong>, Celikkanat, Virpioja, Heinonen, Tiedemann · NoDaLiDa
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://aclanthology.org/2023.nodalida-1.37.pdf" target="_blank" class="publication-link">PDF</a>
+                            <a href="https://aclanthology.org/2023.nodalida-1.37.bib" class="publication-link">BibTeX</a>
+                            <a href="https://github.com/Helsinki-NLP/uncertainty-aware-nli" target="_blank" class="publication-link">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://aclanthology.org/2022.starsem-1.20/" target="_blank">How Does Data Corruption Affect Natural Language Understanding Models? A Study on GLUE datasets</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2022</span> <strong>Talman</strong>, Apidianaki, Chatzikyriakidis, Tiedemann · *SEM
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://aclanthology.org/2022.starsem-1.20.pdf" target="_blank" class="publication-link">PDF</a>
+                            <a href="https://aclanthology.org/2022.starsem-1.20.bib" class="publication-link">BibTeX</a>
+                            <a href="https://github.com/Helsinki-NLP/nlu-dataset-diagnostics" target="_blank" class="publication-link">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://www.aclweb.org/anthology/2021.nodalida-main.28/" target="_blank">NLI Data Sanity Check: Assessing the Effect of Data Corruption on Model Performance</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2022</span> <strong>Talman</strong>, Apidianaki, Chatzikyriakidis, Tiedemann · NoDaLiDa
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://www.aclweb.org/anthology/2021.nodalida-main.28.pdf" target="_blank" class="publication-link">PDF</a>
+                            <a href="https://www.aclweb.org/anthology/2021.nodalida-main.28.bib" class="publication-link">BibTeX</a>
+                            <a href="https://github.com/Helsinki-NLP/nli-data-sanity-check" target="_blank" class="publication-link">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://aclweb.org/anthology/W19-6129/" target="_blank">Predicting Prosodic Prominence from Text with Pre-trained Contextualized Word Representations</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2019</span> <strong>Talman</strong>, Suni, Celikkanat, Kakouros, Tiedemann, Vainio · NoDaLiDa
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://www.aclweb.org/anthology/W19-6129.pdf" target="_blank" class="publication-link">PDF</a>
+                            <a href="https://aclweb.org/anthology/W19-6129.bib" class="publication-link">BibTeX</a>
+                            <a href="https://github.com/Helsinki-NLP/prosody" target="_blank" class="publication-link">Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://www.aclweb.org/anthology/W19-5347" target="_blank">The University of Helsinki submissions to the WMT19 news translation task</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2019</span> <strong>Talman</strong>, Sulubacak, Vázquez, Scherrer, Virpioja, Raganato, Hurskainen, Tiedemann · WMT
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://www.aclweb.org/anthology/W19-5347.pdf" target="_blank" class="publication-link">PDF</a>
+                            <a href="https://www.aclweb.org/anthology/W19-5347.bib" class="publication-link">BibTeX</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://aclweb.org/anthology/papers/W/W19/W19-4810/" target="_blank">Testing the Generalization Power of Neural Network Models Across NLI Benchmarks</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2019</span> <strong>Talman</strong>, Chatzikyriakidis · BlackboxNLP @ ACL
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://www.aclweb.org/anthology/W19-4810.pdf" target="_blank" class="publication-link">PDF</a>
+                            <a href="https://aclweb.org/anthology/W19-4810.bib" class="publication-link">BibTeX</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-card fade-in">
+                    <div class="publication-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">
+                            <a href="https://www.cambridge.org/core/journals/natural-language-engineering/article/sentence-embeddings-in-nli-with-iterative-refinement-encoders/AC811644D52446E414333B20FEACE00F" target="_blank">Sentence Embeddings in NLI with Iterative Refinement Encoders</a>
+                        </h3>
+                        <p class="publication-meta">
+                            <span class="pub-year">2019</span> <strong>Talman</strong>, Yli-Jyrä, Tiedemann · Natural Language Engineering
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://arxiv.org/pdf/1808.08762.pdf" target="_blank" class="publication-link">PDF</a>
+                            <a href="files/hbmp.bib" class="publication-link">BibTeX</a>
+                            <a href="https://github.com/Helsinki-NLP/HBMP" target="_blank" class="publication-link">Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="section-footer fade-in" style="text-align: center; margin-top: 3rem;">
+                <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" class="btn btn-secondary" target="_blank" rel="noopener">
+                    View Full Publication List
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+ <!-- Contact Section -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-badge" style="background: rgba(255,255,255,0.2);">Get In Touch</div>
+      <h2 class="section-title">Let's Collaborate</h2>
+      <p class="section-subtitle">
+        Interested in my research, collaborations, or academic inquiries? I'd love to hear from you.
+      </p>
+    </div>
+
+    <di<div class="contact-cta fade-in">
+  <div class="contact-grid">
+    <!-- Email -->
+    <a href="mailto:aarne@talman.ai" class="contact-box" title="Email">
+      <div class="icon">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </div>
+      <div class="label">aarne@talman.ai</div>
+    </a>
+
+    <!-- X / Twitter -->
+    <a href="https://x.com/talman_ai" class="contact-box" title="X (Twitter)" target="_blank" rel="noopener">
+      <div class="icon">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4 4L10.6 13L4 20H6.6L12 14L16.8 20H20L13.2 11.6L19.4 4H16.8L12 9.2L7.6 4H4Z"/>
+        </svg>
+      </div>
+      <div class="label">@talman_ai</div>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/talman" class="contact-box" title="LinkedIn" target="_blank" rel="noopener">
+      <div class="icon">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm4.6 12.6V10H6v6.6h2.6zm-1.3-7.5c.9 0 1.5-.6 1.5-1.4-.1-.9-.6-1.5-1.5-1.5s-1.5.6-1.5 1.5.6 1.4 1.5 1.4zM18 16.6V13c0-1.8-1-2.7-2.4-2.7-1.1 0-1.7.6-2 1.2V10H11v6.6h2.6V13c0-.6.4-1 1-1s1 .4 1 1v3.6H18z"/>
+        </svg>
+      </div>
+      <div class="label">LinkedIn</div>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/aarnetalman" class="contact-box" title="GitHub" target="_blank" rel="noopener">
+      <div class="icon">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.5 7.8 11.1.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 2-.3 2.5-.6.1-.7.4-1.1.7-1.3-2.5-.3-5.2-1.3-5.2-5.7 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.8 0 0 .9-.3 2.9 1.1.8-.2 1.6-.3 2.5-.3s1.7.1 2.5.3c2-.1 2.9-1.1 2.9-1.1.6 1.4.2 2.5.1 2.8.7.8 1.1 1.8 1.1 2.9 0 4.4-2.7 5.4-5.2 5.7.4.4.8 1.1.8 2.3v3.4c0 .3.2.7.8.6 4.6-1.6 7.9-6 7.9-11.1C23.5 5.7 18.3.5 12 .5z"/>
+        </svg>
+      </div>
+      <div class="label">GitHub</div>
+    </a>
+  </div>
+</div>
+
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#career">Career</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p>&copy; 2025 Aarne Talman</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

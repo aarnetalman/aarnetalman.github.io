@@ -1,0 +1,9 @@
+<!-- Save as: favicon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 40 36" fill="none">
+  <!-- Top filled layer -->
+  <polygon points="20 4 4 11 20 18 36 11 20 4" fill="#8b5cf6" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Middle layer -->
+  <polyline points="4 18 20 25 36 18" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bottom layer -->
+  <polyline points="4 25 20 32 36 25" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
