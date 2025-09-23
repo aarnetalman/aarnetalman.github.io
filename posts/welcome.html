@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Blog - Notes on Machine Learning, Technology, and Philosophy</title>
+    <meta name="description" content="Reflections on machine learning, AI research, technology, and philosophy by Aarne Talman.">
+    <meta name="author" content="Aarne Talman">
+    <link rel="canonical" href="https://talman.fi/posts/welcome.html">
+    <link rel="alternate" type="application/rss+xml" title="Notes on Machine Learning, Technology, and Philosophy RSS Feed" href="https://talman.fi/rss.xml">
+    <link rel="alternate" type="application/atom+xml" title="Notes on Machine Learning, Technology, and Philosophy Atom Feed" href="https://talman.fi/atom.xml">
+    <style>
+:root {
+  --block-spacing: 2rem; /* header padding & nav top padding */
+  --nav-border-w: 1px; /* keep in sync with nav border width */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  line-height: 1.6;
+  font-size: 1rem; /* base size */
+  color: #e2e8f0;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: #0f172a;
+  min-height: 100vh;
+}
+
+header {
+  border: 2px solid #334155;
+  margin-bottom: 1.5rem;
+  padding: var(--block-spacing);
+  background: rgba(30, 41, 59, 0.4);
+}
+
+/* Site title */
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #e2e8f0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  letter-spacing: -0.02em;
+}
+
+/* Subtitle under site title */
+.subtitle {
+  color: #94a3b8;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  margin-bottom: 1.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+nav {
+  margin-top: var(--block-spacing);   /* separates it from header border */
+  border-top: 1px solid #334155;
+  padding-top: var(--block-spacing);  /* equal distance top → text */
+}
+
+nav a {
+  color: #60a5fa;
+  text-decoration: none;
+  margin-right: 2rem;
+  font-weight: 500;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+nav a:hover {
+  border-bottom-color: #60a5fa;
+}
+
+nav a:before {
+  content: '> ';
+  color: #94a3b8;
+}
+
+.feed-links {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+footer .feeds {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+footer .feeds a {
+  color: inherit;
+  text-decoration: none;
+  margin-right: 1rem;
+  border-bottom: 1px solid transparent;
+}
+
+footer .feeds a:hover {
+  border-bottom-color: #60a5fa;
+}
+
+main {
+  margin-bottom: 3rem;
+}
+
+.category-filter {
+  margin-bottom: 1rem;
+}
+
+.filter-label {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.filter-label:before {
+  content: '> ';
+  color: #334155;
+}
+
+.category-btn {
+  background: #0f172a;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  padding: 0.3rem 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover {
+  color: #e2e8f0;
+  border-color: #60a5fa;
+}
+
+.category-btn.active {
+  background: #60a5fa;
+  color: #0f172a;
+  border-color: #60a5fa;
+}
+
+.post-list li.hidden {
+  display: none;
+}
+
+.post-list {
+  list-style: none;
+}
+
+.post-list li {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid #334155;
+  position: relative;
+}
+
+.post-list li:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #60a5fa;
+}
+
+/* Post title in list */
+.post-title {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.post-title a {
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: #60a5fa;
+}
+
+.post-title a:before {
+  content: '# ';
+  color: #94a3b8;
+}
+
+.post-date {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.post-excerpt {
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Article container (shared for posts & pages) */
+.entry {
+  background: rgba(30, 41, 59, 0.4);
+  padding: 2.5rem;
+  border: 2px solid #334155;
+  position: relative;
+}
+
+.entry::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: #60a5fa;
+}
+
+/* Meta row for posts only */
+.post-meta {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.post-meta::before {
+  content: '// ';
+  color: #334155;
+}
+
+.date-text {
+  display: inline;
+  margin-right: 1rem;
+}
+
+.categories {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+/* Content styling - SHARED for all posts and pages */
+.content h1 {
+  margin: 0 0 1.5rem 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #e2e8f0;
+  font-weight: 700;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.content h1::before { 
+  content: '# '; 
+  color: #94a3b8; 
+}
+
+.content h2 {
+  margin: 2rem 0 1rem 0;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  color: #e2e8f0;
+  font-weight: 600;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.content h2::before { 
+  content: '## '; 
+  color: #94a3b8; 
+}
+
+.content h3 {
+  margin: 1.5rem 0 0.75rem 0;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: #e2e8f0;
+  font-weight: 600;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.content h3::before { 
+  content: '### '; 
+  color: #94a3b8; 
+}
+
+/* Body text styling - SHARED for all posts and pages */
+.content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
+}
+
+.category {
+  background: #0f172a;
+  color: #60a5fa;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #334155;
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+}
+
+.content strong {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border: 2px solid #334155;
+}
+
+.content img[src*="about/aarne"] {
+  max-width: 200px;
+  border-radius: 8px;
+  float: left;
+  margin: 0 2rem 1rem 0;
+}
+
+.content a {
+  color: #60a5fa;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+.content a:hover {
+  border-bottom-color: #60a5fa;
+}
+
+.content pre {
+  background: #0f172a;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+  border: 1px solid #334155;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.content code {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.9rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  border: 1px solid #334155;
+}
+
+.content pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  color: #e2e8f0;
+}
+
+.content blockquote {
+  border-left: 3px solid #60a5fa;
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  color: #94a3b8;
+  background: #0f172a;
+  padding: 1rem 1.5rem;
+  font-style: italic;
+}
+
+.content blockquote:before {
+  content: '> ';
+  color: #60a5fa;
+  font-weight: bold;
+}
+
+.content ul,
+.content ol {
+  margin: 1.5rem 0;
+  padding-left: 0;
+  color: #cbd5e1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  list-style: none;
+}
+
+.content li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.content ul li:before {
+  content: '• ';
+  color: #60a5fa;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.content ol {
+  counter-reset: list-counter;
+}
+
+.content ol li {
+  counter-increment: list-counter;
+}
+
+.content ol li:before {
+  content: counter(list-counter) '. ';
+  color: #60a5fa;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+footer {
+  padding-top: 2rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  padding: 2rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+footer:before {
+  content: '---';
+  white-space: pre;
+  color: #334155;
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: #60a5fa;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+footer a:hover {
+  border-bottom-color: #60a5fa;
+}
+
+/* Simple scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa;
+}
+
+/* Small screens: layout tweaks only (typography scales via clamp) */
+@media (max-width: 600px) {
+  :root {
+    --block-spacing: 1.5rem; /* keep header & nav equal on mobile */
+  }
+
+  body {
+    padding: 1rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  header,
+  article,
+  footer {
+    padding: 1.5rem;
+  }
+
+  .post-list li {
+    padding: 1.5rem;
+  }
+
+  /* Mobile navigation: horizontal scrollable */
+  nav {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav a {
+    display: inline-block;
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  /* Mobile categories: horizontal scrollable */
+  .category-filter {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+    padding-bottom: 0.5rem;
+  }
+
+  .category-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-btn {
+    display: inline-block;
+    margin-right: 0.75rem;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  /* Better mobile post metadata layout */
+  .date-text {
+    display: inline;        /* keep on same line as '//' */
+    margin-right: 0.75rem;  /* small gap before categories */
+    margin-bottom: 0.5rem;       /* no forced line break */
+  }
+
+  .categories {
+    display: flex;
+    margin-top: 0.5rem;
+    gap: 0; /* Remove gap to align first category to left edge */
+  }
+
+  .categories .category {
+    margin-right: 0.5rem; /* Add manual spacing between categories */
+  }
+
+  .categories .category:last-child {
+    margin-right: 0; /* Remove margin from last category */
+  }
+
+  /* Mobile-friendly content headings */
+  .content h1 {
+    line-height: 1.2;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .content h2 {
+    line-height: 1.3;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .content h3 {
+    line-height: 1.4;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Better mobile text wrapping */
+  .content p {
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Add visual hint for scrollable content */
+  .category-filter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(30, 41, 59, 0.4));
+    pointer-events: none;
+  }
+
+  nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(30, 41, 59, 0.4));
+    pointer-events: none;
+  }
+
+  /* Make scrollable containers relative for ::after positioning */
+  .category-filter,
+  nav {
+    position: relative;
+  }
+
+  .feed-links {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .feed-links a {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0.25rem;
+  }
+}
+</style>
+</head>
+<body>
+    <header>
+      <h1><a href="/" style="color: inherit; text-decoration: none;">Notes on Machine Learning, Technology, and Philosophy</a></h1>
+      <p class="subtitle">By Aarne Talman</p>
+      <nav><a href="/">Home</a><a href="/posts/about.html">About</a><a href="https://github.com/aarnetalman" target="_blank" rel="noopener">GitHub</a><a href="https://scholar.google.com/citations?hl=en&user=Vhq5-s0AAAAJ" target="_blank" rel="noopener">Google Scholar</a></nav>
+    </header>
+
+    
+    <main>
+        
+    <article class="entry">
+      <div class="post-meta">
+        <span class="date-text"><time datetime="2025-09-01T00:00:00.000Z">September 1, 2025</time></span>
+        
+          <span class="categories">
+            <span class="category">Blogging</span>
+          </span>
+      </div>
+      <div class="content">
+        <h1>Welcome to My Blog</h1>
+<p>Hello! I&#39;m Aarne, and this is my personal blog where I&#39;ll be sharing my thoughts and experiences in the world of technology.</p>
+<h2>Why This Blog Exists</h2>
+<p>I&#39;ve been meaning to start writing more about my work and interests for a while now. And I&#39;ve actually started blogging a few times. However, I&#39;ve always found the blogging sites and platforms to be clunky and against my workflow. However, there&#39;s something valuable about putting thoughts into words. It helps clarify ideas, creates a record of learning, and hopefully provides value to others facing similar challenges or questions.</p>
+<p>Rather than using an existing blogging platform, I decided to build my own system. It seemed like a good opportunity to create exactly what I wanted while learning something new in the process.</p>
+<h2>The Blogging System</h2>
+<p>This blog is powered by a custom static site generator I built specifically for my needs. Here&#39;s how it works:</p>
+<p><strong>Content Organization</strong>: Each blog post lives in its own folder containing the markdown file and any associated images or assets. This keeps everything organized and makes it easy to manage posts with multiple files.</p>
+<p><strong>Build Process</strong>: The system converts markdown to HTML, applies a consistent design, and generates a complete static website. Everything is processed locally on my machine.</p>
+<p><strong>Deployment</strong>: The generated site deploys automatically to GitHub Pages with a single command. No server management, no databases, just fast static files served from GitHub&#39;s CDN.</p>
+<p><strong>Design Philosophy</strong>: I wanted something minimal, fast-loading, and focused on readability. The dark theme is easy on the eyes and the responsive design works well across devices.</p>
+<p>The entire workflow from writing to publishing is streamlined. I can focus on content rather than managing infrastructure.</p>
+<h2>What I&#39;ll Write About</h2>
+<p>I plan to cover three main areas:</p>
+<p><strong>Machine Learning</strong>: Model architectures, training methodologies, inference optimization, evaluation frameworks, and what neural networks actually learn. I&#39;m particularly interested in language models and the mechanics of how they process and generate text.</p>
+<p><strong>Technology</strong>: Side projects and experiments that catch my attention. The tools I build for fun, weekend hacks that solve interesting problems, and personal projects that make me think differently about what&#39;s possible with code.</p>
+<p><strong>Philosophy</strong>: Philosophy of mind, language, science, and logic. Exploring questions about meaning, knowledge representation, understanding, and what it means for machines to &quot;know&quot; something.</p>
+<h2>Getting Started</h2>
+<p>This is just the beginning. I&#39;m looking forward to sharing more substantial posts about the projects and ideas I&#39;m working on.</p>
+<p>Thanks for reading!</p>
+
+      </div>
+    </article>
+  
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Aarne Talman. All rights reserved.</p>
+        <p><a href="/rss.xml">/rss</a> <a href="/atom.xml">/atom</a></p>
+    </footer>
+    
+</body>
+</html>

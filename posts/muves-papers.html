@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building an AI Research Assistant Platform - Notes on Machine Learning, Technology, and Philosophy</title>
+    <meta name="description" content="Reflections on machine learning, AI research, technology, and philosophy by Aarne Talman.">
+    <meta name="author" content="Aarne Talman">
+    <link rel="canonical" href="https://talman.fi/posts/muves-papers.html">
+    <link rel="alternate" type="application/rss+xml" title="Notes on Machine Learning, Technology, and Philosophy RSS Feed" href="https://talman.fi/rss.xml">
+    <link rel="alternate" type="application/atom+xml" title="Notes on Machine Learning, Technology, and Philosophy Atom Feed" href="https://talman.fi/atom.xml">
+    <style>
+:root {
+  --block-spacing: 2rem; /* header padding & nav top padding */
+  --nav-border-w: 1px; /* keep in sync with nav border width */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  line-height: 1.6;
+  font-size: 1rem; /* base size */
+  color: #e2e8f0;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: #0f172a;
+  min-height: 100vh;
+}
+
+header {
+  border: 2px solid #334155;
+  margin-bottom: 1.5rem;
+  padding: var(--block-spacing);
+  background: rgba(30, 41, 59, 0.4);
+}
+
+/* Site title */
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #e2e8f0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  letter-spacing: -0.02em;
+}
+
+/* Subtitle under site title */
+.subtitle {
+  color: #94a3b8;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  margin-bottom: 1.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+nav {
+  margin-top: var(--block-spacing);   /* separates it from header border */
+  border-top: 1px solid #334155;
+  padding-top: var(--block-spacing);  /* equal distance top → text */
+}
+
+nav a {
+  color: #60a5fa;
+  text-decoration: none;
+  margin-right: 2rem;
+  font-weight: 500;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+nav a:hover {
+  border-bottom-color: #60a5fa;
+}
+
+nav a:before {
+  content: '> ';
+  color: #94a3b8;
+}
+
+.feed-links {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+footer .feeds {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+footer .feeds a {
+  color: inherit;
+  text-decoration: none;
+  margin-right: 1rem;
+  border-bottom: 1px solid transparent;
+}
+
+footer .feeds a:hover {
+  border-bottom-color: #60a5fa;
+}
+
+main {
+  margin-bottom: 3rem;
+}
+
+.category-filter {
+  margin-bottom: 1rem;
+}
+
+.filter-label {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.filter-label:before {
+  content: '> ';
+  color: #334155;
+}
+
+.category-btn {
+  background: #0f172a;
+  color: #94a3b8;
+  border: 1px solid #334155;
+  padding: 0.3rem 0.8rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover {
+  color: #e2e8f0;
+  border-color: #60a5fa;
+}
+
+.category-btn.active {
+  background: #60a5fa;
+  color: #0f172a;
+  border-color: #60a5fa;
+}
+
+.post-list li.hidden {
+  display: none;
+}
+
+.post-list {
+  list-style: none;
+}
+
+.post-list li {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid #334155;
+  position: relative;
+}
+
+.post-list li:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #60a5fa;
+}
+
+/* Post title in list */
+.post-title {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.post-title a {
+  color: #e2e8f0;
+  text-decoration: none;
+}
+
+.post-title a:hover {
+  color: #60a5fa;
+}
+
+.post-title a:before {
+  content: '# ';
+  color: #94a3b8;
+}
+
+.post-date {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.post-excerpt {
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Article container (shared for posts & pages) */
+.entry {
+  background: rgba(30, 41, 59, 0.4);
+  padding: 2.5rem;
+  border: 2px solid #334155;
+  position: relative;
+}
+
+.entry::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: #60a5fa;
+}
+
+/* Meta row for posts only */
+.post-meta {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.post-meta::before {
+  content: '// ';
+  color: #334155;
+}
+
+.date-text {
+  display: inline;
+  margin-right: 1rem;
+}
+
+.categories {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+/* Content styling - SHARED for all posts and pages */
+.content h1 {
+  margin: 0 0 1.5rem 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #e2e8f0;
+  font-weight: 700;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.content h1::before { 
+  content: '# '; 
+  color: #94a3b8; 
+}
+
+.content h2 {
+  margin: 2rem 0 1rem 0;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  color: #e2e8f0;
+  font-weight: 600;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.content h2::before { 
+  content: '## '; 
+  color: #94a3b8; 
+}
+
+.content h3 {
+  margin: 1.5rem 0 0.75rem 0;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: #e2e8f0;
+  font-weight: 600;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.content h3::before { 
+  content: '### '; 
+  color: #94a3b8; 
+}
+
+/* Body text styling - SHARED for all posts and pages */
+.content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
+}
+
+.category {
+  background: #0f172a;
+  color: #60a5fa;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #334155;
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+}
+
+.content strong {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border: 2px solid #334155;
+}
+
+.content img[src*="about/aarne"] {
+  max-width: 200px;
+  border-radius: 8px;
+  float: left;
+  margin: 0 2rem 1rem 0;
+}
+
+.content a {
+  color: #60a5fa;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+.content a:hover {
+  border-bottom-color: #60a5fa;
+}
+
+.content pre {
+  background: #0f172a;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+  border: 1px solid #334155;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.content code {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.9rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  border: 1px solid #334155;
+}
+
+.content pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  color: #e2e8f0;
+}
+
+.content blockquote {
+  border-left: 3px solid #60a5fa;
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  color: #94a3b8;
+  background: #0f172a;
+  padding: 1rem 1.5rem;
+  font-style: italic;
+}
+
+.content blockquote:before {
+  content: '> ';
+  color: #60a5fa;
+  font-weight: bold;
+}
+
+.content ul,
+.content ol {
+  margin: 1.5rem 0;
+  padding-left: 0;
+  color: #cbd5e1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  list-style: none;
+}
+
+.content li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.content ul li:before {
+  content: '• ';
+  color: #60a5fa;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.content ol {
+  counter-reset: list-counter;
+}
+
+.content ol li {
+  counter-increment: list-counter;
+}
+
+.content ol li:before {
+  content: counter(list-counter) '. ';
+  color: #60a5fa;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+footer {
+  padding-top: 2rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  padding: 2rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+footer:before {
+  content: '---';
+  white-space: pre;
+  color: #334155;
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: #60a5fa;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+footer a:hover {
+  border-bottom-color: #60a5fa;
+}
+
+/* Simple scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa;
+}
+
+/* Small screens: layout tweaks only (typography scales via clamp) */
+@media (max-width: 600px) {
+  :root {
+    --block-spacing: 1.5rem; /* keep header & nav equal on mobile */
+  }
+
+  body {
+    padding: 1rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  header,
+  article,
+  footer {
+    padding: 1.5rem;
+  }
+
+  .post-list li {
+    padding: 1.5rem;
+  }
+
+  /* Mobile navigation: horizontal scrollable */
+  nav {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav a {
+    display: inline-block;
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  /* Mobile categories: horizontal scrollable */
+  .category-filter {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+    padding-bottom: 0.5rem;
+  }
+
+  .category-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-btn {
+    display: inline-block;
+    margin-right: 0.75rem;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  /* Better mobile post metadata layout */
+  .date-text {
+    display: inline;        /* keep on same line as '//' */
+    margin-right: 0.75rem;  /* small gap before categories */
+    margin-bottom: 0.5rem;       /* no forced line break */
+  }
+
+  .categories {
+    display: flex;
+    margin-top: 0.5rem;
+    gap: 0; /* Remove gap to align first category to left edge */
+  }
+
+  .categories .category {
+    margin-right: 0.5rem; /* Add manual spacing between categories */
+  }
+
+  .categories .category:last-child {
+    margin-right: 0; /* Remove margin from last category */
+  }
+
+  /* Mobile-friendly content headings */
+  .content h1 {
+    line-height: 1.2;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .content h2 {
+    line-height: 1.3;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .content h3 {
+    line-height: 1.4;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Better mobile text wrapping */
+  .content p {
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Add visual hint for scrollable content */
+  .category-filter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(30, 41, 59, 0.4));
+    pointer-events: none;
+  }
+
+  nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(30, 41, 59, 0.4));
+    pointer-events: none;
+  }
+
+  /* Make scrollable containers relative for ::after positioning */
+  .category-filter,
+  nav {
+    position: relative;
+  }
+
+  .feed-links {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .feed-links a {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 0.25rem;
+  }
+}
+</style>
+</head>
+<body>
+    <header>
+      <h1><a href="/" style="color: inherit; text-decoration: none;">Notes on Machine Learning, Technology, and Philosophy</a></h1>
+      <p class="subtitle">By Aarne Talman</p>
+      <nav><a href="/">Home</a><a href="/posts/about.html">About</a><a href="https://github.com/aarnetalman" target="_blank" rel="noopener">GitHub</a><a href="https://scholar.google.com/citations?hl=en&user=Vhq5-s0AAAAJ" target="_blank" rel="noopener">Google Scholar</a></nav>
+    </header>
+
+    
+    <main>
+        
+    <article class="entry">
+      <div class="post-meta">
+        <span class="date-text"><time datetime="2025-09-20T00:00:00.000Z">September 20, 2025</time></span>
+        
+          <span class="categories">
+            <span class="category">Projects</span>
+          </span>
+      </div>
+      <div class="content">
+        <h1>Building an AI Research Assistant Platform</h1>
+<p>The volume of AI research is growing exponentially. ArXiv alone publishes hundreds of new papers every day, making it nearly impossible for researchers, students, and practitioners to stay current with meaningful developments in their areas of interest.</p>
+<p>This information overload problem led us (together with Dmitry Kan and Stergios Chatzikyriakidis) to build <strong>Muves Papers</strong> - a platform that helps people discover, organize, and understand AI research papers more effectively.</p>
+<h2>The Problem We&#39;re Solving</h2>
+<p>Staying current with AI research has become a significant challenge, even for experts in the field. The traditional approach of manually scanning through paper titles, abstracts, and skimming content simply doesn&#39;t scale when you&#39;re dealing with hundreds of new publications per week.</p>
+<p>Researchers face several specific pain points:</p>
+<p><strong>Information Overload</strong>: Too many papers to review manually, making it easy to miss important developments.</p>
+<p><strong>Organisation Challenges</strong>: Difficulty organising and categorising papers by project or research area.</p>
+<p><strong>Comprehension Barriers</strong>: Complex papers with dense technical content that require significant time investment to understand.</p>
+<p><strong>Context Loss</strong>: Hard to see connections between papers or track how ideas evolve across multiple publications.</p>
+<h2>Our Approach</h2>
+<p>Muves addresses these challenges through a combination of AI-powered analysis and smart organisation tools. Muves Papers is an AI-powered research platform designed to help researchers, students, and practitioners navigate the overwhelming volume of AI literature. Instead of manually sifting through hundreds of papers, users can discover trending research, organise papers into focused projects, and leverage AI agents to analyse content and generate insights. The platform transforms the traditional research workflow from time-consuming manual processes into an efficient, AI-assisted experience.</p>
+<p><img src="/images/muves-papers/trending.png" alt="Muves Papers"></p>
+<h2>The Platform</h2>
+<p>The platform is built around five core features:</p>
+<h3>Paper Analysis</h3>
+<p><img src="/images/muves-papers/paper-analysis.png" alt="Muves Paper Analysis"></p>
+<p>Individual papers get processed through our analysis agent, which breaks down complex research into structured insights. The system extracts key findings, methodology, and significance, making it much faster to understand what a paper contributes and whether it&#39;s relevant to your work.</p>
+<h3>Topic Search and Discovery</h3>
+<p><img src="/images/muves-papers/topic-summary.png" alt="Topic Summary Example"></p>
+<p>Users can explore research areas through our topic search feature, which provides AI-generated overviews of complex domains. This helps researchers quickly get up to speed on unfamiliar areas or understand how different concepts relate to each other.</p>
+<h3>Project-Based Organisation</h3>
+<p><img src="/images/muves-papers/workspace.png" alt="Muves Workspace"></p>
+<p>The platform allows users to organise papers into focused projects, keeping related research together. This project-based approach makes it much easier to build comprehensive understanding around specific research questions or areas of interest.</p>
+<h3>Automated Literature Reviews</h3>
+<p><img src="/images/muves-papers/literature-review.png" alt="Literature Review"></p>
+<p>Once you&#39;ve collected papers in a project, our Research Assistant can automatically generate structured literature reviews. This saves significant time compared to manually synthesising information across multiple papers and helps identify patterns and gaps in the research.</p>
+<h3>Chat with Project Papers</h3>
+<p>The Research Assistant provides conversational access to your paper collections. You can ask questions about specific papers, request summaries of key concepts, or explore connections between different pieces of research - all scoped to the papers you&#39;ve actually added to your project.</p>
+<h2>Technical Architecture</h2>
+<p>Muves is built on a modern web stack with several specialised AI agents:</p>
+<p><strong>Paper Analysis Agent</strong>: Processes individual papers to extract key insights, methodology, and significance.</p>
+<p><strong>Topic Summarisation Agent</strong>: Creates structured overviews of research areas and emerging trends.</p>
+<p><strong>Research Assistant Agent</strong>: Provides conversational access to paper collections and generates literature reviews.</p>
+<p><strong>Discovery Engine</strong>: Surfaces trending and relevant papers based on community signals and research impact.</p>
+<p>The platform integrates with multiple data sources including ArXiv, academic databases, and research community signals to provide comprehensive coverage of the AI research landscape.</p>
+<h2>Current Status and Learning</h2>
+<p>We soft-launched Muves earlier this year and have been iterating based on user feedback from researchers and practitioners. The platform currently helps users track thousands of papers across different AI domains. We&#39;re currently supported by Google Cloud credits, which allows us to keep the platform operational while we explore sustainable funding models for long-term growth.</p>
+<p>Some key insights we&#39;ve learned:</p>
+<p><strong>Project-based organisation is crucial</strong> - Users need to group papers by their specific research interests rather than broad categories.</p>
+<p><strong>AI assistance works best when scoped</strong> - Rather than trying to answer questions about all research, focusing the AI on specific paper collections provides more accurate and useful responses.</p>
+<p><strong>Context matters more than completeness</strong> - Users prefer curated, relevant content over comprehensive but noisy feeds.</p>
+<p><strong>Literature reviews save significant time</strong> - Automated synthesis of project papers into structured reviews has been one of the most valuable features for users.</p>
+<h2>What&#39;s Next</h2>
+<p>We&#39;re continuing to develop Muves based on how researchers actually work with literature. Upcoming features include better collaboration tools for research teams, more sophisticated trend analysis, and enhanced integration with reference managers and note-taking workflows.</p>
+<p>The goal remains the same: making it easier for people to stay current with AI research without being overwhelmed by the volume of new information.</p>
+<p>If you&#39;re interested in trying Muves, you can check it out at <a href="https://papers.muves.io">papers.muves.io</a>. We&#39;re always looking for feedback from researchers and practitioners who deal with the challenge of staying current in fast-moving fields.</p>
+<hr>
+<p><em>Muves is developed by myself along with Dmitry Kan and Stergios Chatzikyriakidis, combining our experience in AI research, search technologies, and natural language processing.</em></p>
+
+      </div>
+    </article>
+  
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Aarne Talman. All rights reserved.</p>
+        <p><a href="/rss.xml">/rss</a> <a href="/atom.xml">/atom</a></p>
+    </footer>
+    
+</body>
+</html>
