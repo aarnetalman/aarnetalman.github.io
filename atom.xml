@@ -10,7 +10,7 @@
     <name>Aarne Talman</name>
     <email>aarne@talman.fi</email>
   </author>
-  <generator>Static Blog Generator</generator>
+  <generator>Monoblogger/generator>
   <entry>
     <id>https://talman.fi/posts/muves-papers.html</id>
     <title type="html">Building an AI Research Assistant Platform</title>
