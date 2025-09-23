@@ -7,7 +7,7 @@
     <link>https://talman.fi</link>
     <description>Reflections on machine learning, AI research, technology, and philosophy by Aarne Talman.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Sep 2025 13:23:52 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 23 Sep 2025 13:37:33 GMT</lastBuildDate>
     <pubDate>Sat, 20 Sep 2025 00:00:00 GMT</pubDate>
     <ttl>60</ttl>
     <managingEditor>aarne@talman.fi (Aarne Talman)</managingEditor>
@@ -139,7 +139,7 @@
 <p>I&#39;ve been meaning to start writing more about my work and interests for a while now. And I&#39;ve actually started blogging a few times. However, I&#39;ve always found the blogging sites and platforms to be clunky and against my workflow. However, there&#39;s something valuable about putting thoughts into words. It helps clarify ideas, creates a record of learning, and hopefully provides value to others facing similar challenges or questions.</p>
 <p>Rather than using an existing blogging platform, I decided to build my own system. It seemed like a good opportunity to create exactly what I wanted while learning something new in the process.</p>
 <h2>The Blogging System</h2>
-<p>This blog is powered by a custom static site generator I built specifically for my needs. Here&#39;s how it works:</p>
+<p>This blog is powered by a custom static site generator <a href="https://github.com/aarnetalman/monoblogger">MonoBlogger</a> I built specifically for my needs. Here&#39;s how it works:</p>
 <p><strong>Content Organization</strong>: Each blog post lives in its own folder containing the markdown file and any associated images or assets. This keeps everything organized and makes it easy to manage posts with multiple files.</p>
 <p><strong>Build Process</strong>: The system converts markdown to HTML, applies a consistent design, and generates a complete static website. Everything is processed locally on my machine.</p>
 <p><strong>Deployment</strong>: The generated site deploys automatically to GitHub Pages with a single command. No server management, no databases, just fast static files served from GitHub&#39;s CDN.</p>
