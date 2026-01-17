@@ -1,741 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes on Machine Learning, Technology, and Philosophy</title>
-    <meta name="description" content="Reflections on machine learning, AI research, technology, and philosophy by Aarne Talman.">
-    <meta name="author" content="Aarne Talman">
-    <link rel="canonical" href="https://talman.fi/">
-    <link rel="alternate" type="application/rss+xml" title="Notes on Machine Learning, Technology, and Philosophy RSS Feed" href="https://talman.fi/rss.xml">
-    <link rel="alternate" type="application/atom+xml" title="Notes on Machine Learning, Technology, and Philosophy Atom Feed" href="https://talman.fi/atom.xml">
-    <style>
-:root {
-  --block-spacing: 2rem; /* header padding & nav top padding */
-  --nav-border-w: 1px; /* keep in sync with nav border width */
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  line-height: 1.6;
-  font-size: 1rem; /* base size */
-  color: #e2e8f0;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  background: #0f172a;
-  min-height: 100vh;
-}
-
-header {
-  border: 2px solid #334155;
-  margin-bottom: 1.5rem;
-  padding: var(--block-spacing);
-  background: rgba(30, 41, 59, 0.4);
-}
-
-/* Site title */
-h1 {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #e2e8f0;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  letter-spacing: -0.02em;
-}
-
-/* Subtitle under site title */
-.subtitle {
-  color: #94a3b8;
-  font-size: clamp(0.85rem, 2vw, 1rem);
-  margin-bottom: 1.5rem;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-}
-
-nav {
-  margin-top: var(--block-spacing);   /* separates it from header border */
-  border-top: 1px solid #334155;
-  padding-top: var(--block-spacing);  /* equal distance top → text */
-}
-
-nav a {
-  color: #60a5fa;
-  text-decoration: none;
-  margin-right: 2rem;
-  font-weight: 500;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  border-bottom: 1px solid transparent;
-  transition: border-bottom-color 0.2s ease;
-}
-
-nav a:hover {
-  border-bottom-color: #60a5fa;
-}
-
-nav a:before {
-  content: '> ';
-  color: #94a3b8;
-}
-
-.feed-links {
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  color: #94a3b8;
-}
-
-footer .feeds {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-  color: #94a3b8;
-}
-
-footer .feeds a {
-  color: inherit;
-  text-decoration: none;
-  margin-right: 1rem;
-  border-bottom: 1px solid transparent;
-}
-
-footer .feeds a:hover {
-  border-bottom-color: #60a5fa;
-}
-
-main {
-  margin-bottom: 3rem;
-}
-
-.category-filter {
-  margin-bottom: 1rem;
-}
-
-.filter-label {
-  color: #94a3b8;
-  font-size: 0.9rem;
-  margin-right: 1rem;
-}
-
-.filter-label:before {
-  content: '> ';
-  color: #334155;
-}
-
-.category-btn {
-  background: #0f172a;
-  color: #94a3b8;
-  border: 1px solid #334155;
-  padding: 0.3rem 0.8rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.category-btn:hover {
-  color: #e2e8f0;
-  border-color: #60a5fa;
-}
-
-.category-btn.active {
-  background: #60a5fa;
-  color: #0f172a;
-  border-color: #60a5fa;
-}
-
-.post-list li.hidden {
-  display: none;
-}
-
-.post-list {
-  list-style: none;
-}
-
-.post-list li {
-  margin-bottom: 1.5rem;
-  padding: 1.5rem;
-  background: rgba(30, 41, 59, 0.4);
-  border: 1px solid #334155;
-  position: relative;
-}
-
-.post-list li:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #60a5fa;
-}
-
-/* Post title in list */
-.post-title {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-}
-
-.post-title a {
-  color: #e2e8f0;
-  text-decoration: none;
-}
-
-.post-title a:hover {
-  color: #60a5fa;
-}
-
-.post-title a:before {
-  content: '# ';
-  color: #94a3b8;
-}
-
-.post-date {
-  color: #94a3b8;
-  font-size: 0.85rem;
-  margin-bottom: 0.75rem;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-}
-
-.post-excerpt {
-  color: #cbd5e1;
-  line-height: 1.6;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* Article container (shared for posts & pages) */
-.entry {
-  background: rgba(30, 41, 59, 0.4);
-  padding: 2.5rem;
-  border: 2px solid #334155;
-  position: relative;
-}
-
-.entry::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: #60a5fa;
-}
-
-/* Meta row for posts only */
-.post-meta {
-  color: #94a3b8;
-  font-size: 0.85rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #334155;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-}
-
-.post-meta::before {
-  content: '// ';
-  color: #334155;
-}
-
-.date-text {
-  display: inline;
-  margin-right: 1rem;
-}
-
-.categories {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: baseline;
-}
-
-/* Content styling - SHARED for all posts and pages */
-.content h1 {
-  margin: 0 0 1.5rem 0;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: #e2e8f0;
-  font-weight: 700;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-}
-
-.content h1::before { 
-  content: '# '; 
-  color: #94a3b8; 
-}
-
-.content h2 {
-  margin: 2rem 0 1rem 0;
-  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-  color: #e2e8f0;
-  font-weight: 600;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-}
-
-.content h2::before { 
-  content: '## '; 
-  color: #94a3b8; 
-}
-
-.content h3 {
-  margin: 1.5rem 0 0.75rem 0;
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
-  color: #e2e8f0;
-  font-weight: 600;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-}
-
-.content h3::before { 
-  content: '### '; 
-  color: #94a3b8; 
-}
-
-/* Body text styling - SHARED for all posts and pages */
-.content p {
-  margin-bottom: 1.5rem;
-  line-height: 1.7;
-  color: #cbd5e1;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 1rem;
-}
-
-.category {
-  background: #0f172a;
-  color: #60a5fa;
-  padding: 0.2rem 0.5rem;
-  border: 1px solid #334155;
-  font-size: 0.75rem;
-  margin-right: 0.5rem;
-}
-
-.content strong {
-  color: #e2e8f0;
-  font-weight: 600;
-}
-
-.content img {
-  max-width: 100%;
-  height: auto;
-  margin: 2rem 0;
-  border: 2px solid #334155;
-}
-
-.content img[src*="about/aarne"] {
-  max-width: 200px;
-  border-radius: 8px;
-  float: left;
-  margin: 0 2rem 1rem 0;
-}
-
-.content a {
-  color: #60a5fa;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-bottom-color 0.2s ease;
-}
-
-.content a:hover {
-  border-bottom-color: #60a5fa;
-}
-
-.content pre {
-  background: #0f172a;
-  padding: 1.5rem;
-  overflow-x: auto;
-  margin: 2rem 0;
-  border: 1px solid #334155;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-}
-
-.content code {
-  background: #0f172a;
-  color: #94a3b8;
-  padding: 0.2rem 0.4rem;
-  font-size: 0.9rem;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  border: 1px solid #334155;
-}
-
-.content pre code {
-  background: none;
-  padding: 0;
-  border: none;
-  color: #e2e8f0;
-}
-
-.content blockquote {
-  border-left: 3px solid #60a5fa;
-  margin: 2rem 0;
-  padding-left: 1.5rem;
-  color: #94a3b8;
-  background: #0f172a;
-  padding: 1rem 1.5rem;
-  font-style: italic;
-}
-
-.content blockquote:before {
-  content: '> ';
-  color: #60a5fa;
-  font-weight: bold;
-}
-
-.content ul,
-.content ol {
-  margin: 1.5rem 0;
-  padding-left: 0;
-  color: #cbd5e1;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  list-style: none;
-}
-
-.content li {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-  padding-left: 1.5rem;
-  position: relative;
-}
-
-.content ul li:before {
-  content: '• ';
-  color: #60a5fa;
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-}
-
-.content ol {
-  counter-reset: list-counter;
-}
-
-.content ol li {
-  counter-increment: list-counter;
-}
-
-.content ol li:before {
-  content: counter(list-counter) '. ';
-  color: #60a5fa;
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-}
-
-footer {
-  padding-top: 2rem;
-  text-align: center;
-  color: #94a3b8;
-  font-size: 0.85rem;
-  padding: 2rem;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-}
-
-footer:before {
-  content: '---';
-  white-space: pre;
-  color: #334155;
-  display: block;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-footer a {
-  color: #60a5fa;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-bottom-color 0.2s ease;
-}
-
-footer a:hover {
-  border-bottom-color: #60a5fa;
-}
-
-/* Simple scrollbar */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0f172a;
-  border: 1px solid #334155;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #334155;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #60a5fa;
-}
-
-/* Small screens: layout tweaks only (typography scales via clamp) */
-@media (max-width: 600px) {
-  :root {
-    --block-spacing: 1.5rem; /* keep header & nav equal on mobile */
-  }
-
-  body {
-    padding: 1rem 0.5rem;
-    font-size: 0.95rem;
-  }
-
-  header,
-  article,
-  footer {
-    padding: 1.5rem;
-  }
-
-  .post-list li {
-    padding: 1.5rem;
-  }
-
-  /* Mobile navigation: horizontal scrollable */
-  nav {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    white-space: nowrap;
-  }
-
-  nav::-webkit-scrollbar {
-    display: none;
-  }
-
-  nav a {
-    display: inline-block;
-    margin-right: 1.5rem;
-    margin-bottom: 0;
-    white-space: nowrap;
-  }
-
-  /* Mobile categories: horizontal scrollable */
-  .category-filter {
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    white-space: nowrap;
-    padding-bottom: 0.5rem;
-  }
-
-  .category-filter::-webkit-scrollbar {
-    display: none;
-  }
-
-  .category-btn {
-    display: inline-block;
-    margin-right: 0.75rem;
-    margin-bottom: 0;
-    white-space: nowrap;
-  }
-
-  /* Better mobile post metadata layout */
-  .date-text {
-    display: inline;        /* keep on same line as '//' */
-    margin-right: 0.75rem;  /* small gap before categories */
-    margin-bottom: 0.5rem;       /* no forced line break */
-  }
-
-  .categories {
-    display: flex;
-    margin-top: 0.5rem;
-    gap: 0; /* Remove gap to align first category to left edge */
-  }
-
-  .categories .category {
-    margin-right: 0.5rem; /* Add manual spacing between categories */
-  }
-
-  .categories .category:last-child {
-    margin-right: 0; /* Remove margin from last category */
-  }
-
-  /* Mobile-friendly content headings */
-  .content h1 {
-    line-height: 1.2;
-    word-break: break-word;
-    hyphens: auto;
-  }
-
-  .content h2 {
-    line-height: 1.3;
-    word-break: break-word;
-    hyphens: auto;
-  }
-
-  .content h3 {
-    line-height: 1.4;
-    word-break: break-word;
-    hyphens: auto;
-  }
-
-  /* Better mobile text wrapping */
-  .content p {
-    word-break: break-word;
-    hyphens: auto;
-  }
-
-  /* Add visual hint for scrollable content */
-  .category-filter::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(30, 41, 59, 0.4));
-    pointer-events: none;
-  }
-
-  nav::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 20px;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(30, 41, 59, 0.4));
-    pointer-events: none;
-  }
-
-  /* Make scrollable containers relative for ::after positioning */
-  .category-filter,
-  nav {
-    position: relative;
-  }
-
-  .feed-links {
-    margin-top: 0.5rem;
-    padding-top: 0.5rem;
-  }
-
-  .feed-links a {
-    display: inline-block;
-    margin-right: 1rem;
-    margin-bottom: 0.25rem;
-  }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarne Talman – AI Engineering Leader</title>
+
+  <meta name="description" content="AI Engineering Leader building high-performance AI software and leading teams shaping intelligent systems. PhD in Language Technology." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-    <header>
-      <h1><a href="/" style="color: inherit; text-decoration: none;">Notes on Machine Learning, Technology, and Philosophy</a></h1>
-      <p class="subtitle">By Aarne Talman</p>
-      <nav><a href="/">Home</a><a href="/posts/about.html">About</a><a href="https://github.com/aarnetalman" target="_blank" rel="noopener">GitHub</a><a href="https://scholar.google.com/citations?hl=en&user=Vhq5-s0AAAAJ" target="_blank" rel="noopener">Google Scholar</a></nav>
-    </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    
-    <main>
-        
-    
-    <div class="category-filter">
-      <button class="category-btn active" data-category="all">All</button>
-      <button class="category-btn" data-category="blogging">Blogging</button><button class="category-btn" data-category="machine learning">Machine Learning</button><button class="category-btn" data-category="philosophy">Philosophy</button><button class="category-btn" data-category="projects">Projects</button>
-    </div>
-  
-    <ul class="post-list">
-      
-    <li data-categories="projects">
-      <h2 class="post-title">
-        <a href="/posts/muves-papers.html">Building an AI Research Assistant Platform</a>
-      </h2>
-      <div class="post-date">
-        <span class="date-text">September 20, 2025</span>
-        
-          <span class="categories">
-            <span class="category">Projects</span>
-          </span>
-      </div>
-      <p class="post-excerpt">How we built a platform to help researchers navigate the overwhelming volume of AI research papers using AI agents and smart organisation.</p>
-    </li>
-  
-    <li data-categories="machine learning philosophy">
-      <h2 class="post-title">
-        <a href="/posts/ai-language-understanding.html">Do Language Models Actually Understand Language?</a>
-      </h2>
-      <div class="post-date">
-        <span class="date-text">September 13, 2025</span>
-        
-          <span class="categories">
-            <span class="category">Machine Learning</span> <span class="category">Philosophy</span>
-          </span>
-      </div>
-      <p class="post-excerpt">Exploring whether language models truly understand language or are merely exceptionally good at mimicking linguistic skills through statistical patterns.</p>
-    </li>
-  
-    <li data-categories="blogging">
-      <h2 class="post-title">
-        <a href="/posts/welcome.html">Welcome to My Blog</a>
-      </h2>
-      <div class="post-date">
-        <span class="date-text">September 1, 2025</span>
-        
-          <span class="categories">
-            <span class="category">Blogging</span>
-          </span>
-      </div>
-      <p class="post-excerpt">Introducing my personal blog and the custom blogging system I built for it.</p>
-    </li>
-  
+  <nav aria-label="Primary">
+    <a class="nav-name" href="#top">Aarne Talman</a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    
-  
-    </main>
-    
-    <footer>
-        <p>&copy; 2025 Aarne Talman. All rights reserved.</p>
-        <p><a href="/rss.xml">/rss</a> <a href="/atom.xml">/atom</a></p>
-        <p>Powered by <a href="https://github.com/aarnetalman/monoblogger">MonoBlogger</a></p>
-    </footer>
-    
-<script>
-  // Category filter
-  document.addEventListener('DOMContentLoaded', function () {
-    const buttons = Array.from(document.querySelectorAll('.category-btn'));
-    const items   = Array.from(document.querySelectorAll('.post-list li'));
 
-    function setActive(btn) {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
+    <div class="nav-mobile" aria-label="Mobile menu">
+      <details>
+        <summary aria-label="Open menu">Menu</summary>
+        <div class="menu">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#publications">Publications</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </details>
+    </div>
+  </nav>
 
-    function applyFilter(category) {
-      const cat = (category || 'all').toLowerCase();
-      items.forEach(li => {
-        const categoriesStr = (li.dataset.categories || '').toLowerCase();
-        if (cat === 'all' || categoriesStr.includes(cat)) {
-          li.classList.remove('hidden');
-        } else {
-          li.classList.add('hidden');
-        }
-      });
-    }
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-image">
+            <img
+              src="images/Image.jpg"
+              alt="Aarne Talman"
+              width="360"
+              height="360"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
 
-    // Click -> filter
-    buttons.forEach(btn => {
-      btn.addEventListener('click', function () {
-        setActive(this);
-        applyFilter(this.dataset.category);
-        // Optional: reflect in URL hash for shareability
-        const c = this.dataset.category;
-        history.replaceState(null, '', c === 'all' ? location.pathname : `#cat=${encodeURIComponent(c)}`);
-      });
-    });
+          <div class="hero-content">
+            <h1>AI Engineering <span class="accent">Leader</span></h1>
+            <p class="hero-tagline">
+              Building high-performance AI software and leading teams that shape the future of intelligent systems.
+            </p>
 
-    // Optional: read initial filter from URL hash (#cat=ai)
-    const m = location.hash.match(/#cat=([^&]+)/);
-    if (m) {
-      const wanted = decodeURIComponent(m[1]).toLowerCase();
-      const btn = buttons.find(b => b.dataset.category === wanted);
-      if (btn) { setActive(btn); applyFilter(wanted); return; }
-    }
+            <div class="hero-meta" aria-label="Key facts">
+              <div class="meta-item">
+                <div class="meta-value accent">PhD</div>
+                <div class="meta-label">Language Technology</div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-value accent">20+</div>
+                <div class="meta-label">Years in Tech</div>
+              </div>
+            </div>
 
-    // Default: All
-    const defaultBtn = buttons.find(b => b.dataset.category === 'all');
-    if (defaultBtn) { setActive(defaultBtn); applyFilter('all'); }
-  });
-</script>
+            <div class="hero-cta">
+              <a href="#contact">Get in Touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="featured">
+      <div class="container">
+        <div class="featured-grid">
+          <div class="section-label">Featured</div>
+          <div class="featured-card">
+            <div class="featured-label">Latest Work</div>
+            <div class="featured-title">
+              <a href="https://rocm.blogs.amd.com/artificial-intelligence/scaling-ai-inference/README.html" target="_blank" rel="noopener noreferrer">Scaling AI Inference Performance with vLLM on AMD Instinct MI355X GPUs</a>
+            </div>
+            <p class="featured-description">Benchmarking LLM inference showing AMD MI355X delivering up to 1.4x higher throughput on DeepSeek-R1, with consistent advantages at scale for GPT-OSS-120B and Qwen3-235B workloads.</p>
+            <div class="featured-source">AMD ROCm Blogs, December 2025</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="section-label">About</div>
+          <div class="about-content">
+            <h2>Bridging research and production at the forefront of AI</h2>
+            <p class="about-text">
+              I lead AI software teams improving workload performance on AMD GPUs with a focus on LLM inference.
+              With a PhD in Language Technology and 20 years of experience at companies like Silo AI, Nordcloud,
+              Nokia, Gartner, and Accenture, I bring deep technical expertise and strategic vision to every challenge.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="container">
+        <div class="section-label">Experience</div>
+
+        <div class="experience-grid">
+          <div></div>
+
+          <div class="experience-list" aria-label="Roles">
+            <div class="experience-item">
+              <div class="experience-role">Senior Manager, AI Software</div>
+              <div class="experience-company">AMD</div>
+              <p class="experience-summary">Leading teams improving LLM inference performance and throughput on AMD Instinct GPUs.</p>
+            </div>
+            <div class="experience-item">
+              <div class="experience-role">Visiting Scholar &amp; University Instructor</div>
+              <div class="experience-company">University of Helsinki</div>
+              <p class="experience-summary">Teaching Large Language Models and Generative AI for NLP to graduate students.</p>
+            </div>
+            <div class="experience-item">
+              <div class="experience-role">Senior Manager &amp; EMEA ML Lead</div>
+              <div class="experience-company">Accenture – Centre for Advanced AI</div>
+              <p class="experience-summary">AI and machine learning consulting with a focus on generative AI and LLMs for enterprise clients.</p>
+            </div>
+            <div class="experience-item">
+              <div class="experience-role">Head of R&amp;D, SiloGen</div>
+              <div class="experience-company">Silo AI (acquired by AMD)</div>
+              <p class="experience-summary">Led R&amp;D for SiloGen, building custom LLM solutions and multilingual language models.</p>
+            </div>
+            <div class="experience-item">
+              <div class="experience-role">CTO, UK</div>
+              <div class="experience-company">Nordcloud (acquired by IBM)</div>
+              <p class="experience-summary">Drove technology strategy and engineering for cloud-native solutions across the UK market.</p>
+            </div>
+            <div class="experience-item">
+              <div class="experience-role">Associate Director</div>
+              <div class="experience-company">Gartner</div>
+              <p class="experience-summary">Technology research and advisory for enterprise IT leaders on emerging technologies.</p>
+            </div>
+            <div class="experience-item">
+              <div class="experience-role">Product Manager, Search</div>
+              <div class="experience-company">Nokia</div>
+              <p class="experience-summary">Led product development for enterprise search and discovery experiences.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="publications" id="publications">
+      <div class="container">
+        <div class="section-label">Selected Publications <span class="section-hint">— full list on <a class="inline-link" href="https://scholar.google.com/citations?hl=en&amp;user=Vhq5-s0AAAAJ" target="_blank" rel="noopener noreferrer">Scholar</a></span></div>
+
+        <div class="publications-grid">
+          <div></div>
+
+          <div>
+            <div class="publications-list" aria-label="Selected publications">
+              <div class="publication-item">
+                <div class="publication-title"><a href="https://rocm.blogs.amd.com/artificial-intelligence/scaling-ai-inference/README.html" target="_blank" rel="noopener noreferrer">Scaling AI Inference Performance with vLLM on AMD Instinct MI355X GPUs</a></div>
+                <div class="publication-venue">AMD ROCm Blogs, 2025</div>
+                <div class="publication-meta">
+                  <span>J Hartikainen, A Talman, R Karhila, T Virolainen, et al.</span>
+                </div>
+              </div>
+
+              <div class="publication-item">
+                <div class="publication-title">Sentence embeddings in NLI with iterative refinement encoders</div>
+                <div class="publication-venue">Natural Language Engineering, 2019</div>
+                <div class="publication-meta">
+                  <span>A Talman, A Yli-Jyrä, J Tiedemann</span>
+                </div>
+              </div>
+
+              <div class="publication-item">
+                <div class="publication-title">Testing the generalization power of neural network models across NLI benchmarks</div>
+                <div class="publication-venue">ACL Workshop BlackboxNLP, 2019</div>
+                <div class="publication-meta">
+                  <span>A Talman, S Chatzikyriakidis</span>
+                </div>
+              </div>
+
+              <div class="publication-item">
+                <div class="publication-title">Predicting prosodic prominence from text with pre-trained contextualized word representations</div>
+                <div class="publication-venue">Nordic Conference on Computational Linguistics, 2019</div>
+                <div class="publication-meta">
+                  <span>A Talman, A Suni, H Celikkanat, S Kakouros, J Tiedemann, M Vainio</span>
+                </div>
+              </div>
+
+              <div class="publication-item">
+                <div class="publication-title">Poro 34B and the blessing of multilinguality</div>
+                <div class="publication-venue">Nordic Conference on Computational Linguistics, 2025</div>
+                <div class="publication-meta">
+                  <span>R Luukkonen, J Burdge, E Zosa, A Talman, et al.</span>
+                </div>
+              </div>
+
+              <div class="publication-item">
+                <div class="publication-title">Uncertainty-Aware Natural Language Inference with Stochastic Weight Averaging</div>
+                <div class="publication-venue">Nordic Conference on Computational Linguistics, 2023</div>
+                <div class="publication-meta">
+                  <span>A Talman, H Celikkanat, S Virpioja, M Heinonen, J Tiedemann</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="https://scholar.google.com/citations?hl=en&amp;user=Vhq5-s0AAAAJ" class="scholar-link" target="_blank" rel="noopener noreferrer">
+              View all publications on Google Scholar →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="education" id="education">
+      <div class="container">
+        <div class="section-label">Education</div>
+
+        <div class="education-grid">
+          <div></div>
+
+          <div class="education-list" aria-label="Degrees">
+            <div class="education-item">
+              <div class="education-degree">PhD, Language Technology</div>
+              <div class="education-school">University of Helsinki</div>
+            </div>
+            <div class="education-item">
+              <div class="education-degree">MSc, Computational Linguistics</div>
+              <div class="education-school">King's College London</div>
+            </div>
+            <div class="education-item">
+              <div class="education-degree">BSc, Philosophy &amp; Logic</div>
+              <div class="education-school">London School of Economics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>Let's <span>connect</span></h2>
+        <p class="contact-subtitle">I speak on AI engineering, LLM inference, and production ML.<br>Happy to connect with teams exploring high-performance inference on AMD GPUs.</p>
+        <div class="contact-links">
+          <a href="mailto:aarne@talman.fi" class="contact-link primary">Email</a>
+          <a href="https://www.linkedin.com/in/talman/" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/aarnetalman" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="footer-text">© 2026 Aarne Talman</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
