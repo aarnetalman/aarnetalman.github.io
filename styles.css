@@ -348,11 +348,11 @@ section { padding: 8rem 0; }
 }
 .publication-title a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
 .publication-title a::after {
-  content: " ↗";
-  font-size: 0.85em;
+  content: " 🔗";
+  font-size: 0.7em;
   color: var(--text-muted);
   text-decoration: none;
-  margin-left: 0.15em;
+  margin-left: 0.25em;
 }
 .publication-venue {
   font-size: 0.85rem;
