@@ -1,274 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aarne Talman – AI Engineering Leader</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aarne Talman</title>
+<meta name="description" content="Aarne Talman: research on natural language understanding, the evaluation of language models, and formal grammar and semantics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4F6F5;
+    --ink: #1C2830;
+    --sea: #2C5A70;
+    --granite: #5F686F;
+    --branch: #8D989F;
+    --rule: #D6DCD9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #11171B;
+      --ink: #E3E8EA;
+      --sea: #94BCD0;
+      --granite: #9AA4AA;
+      --branch: #5C6972;
+      --rule: #28323A;
+    }
+  }
 
-  <meta name="description" content="AI Engineering Leader building high-performance AI software and leading teams shaping intelligent systems. PhD in Language Technology." />
+  *, *::before, *::after { box-sizing: border-box; }
+  html { background: var(--paper); -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 1.1875rem;
+    line-height: 1.62;
+    font-optical-sizing: auto;
+    font-variant-numeric: oldstyle-nums;
+  }
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.5rem; }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  a { color: var(--sea); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; border-radius: 2px; }
+
+  /* Header */
+  .site-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 1.4rem; padding: 1.5rem 0 0; font-size: 1rem; }
+  .site-nav a { color: var(--granite); text-decoration: none; }
+  .site-nav a:hover { color: var(--ink); text-decoration: underline; }
+
+  /* Hero */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 1.5rem 2.5rem;
+    padding: 4rem 0 3rem;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(2.9rem, 8vw, 4.6rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
+  .lede { margin: 1.1rem 0 0; font-size: 1.3rem; line-height: 1.5; max-width: 29rem; }
+  .tree { width: 290px; height: auto; display: block; }
+  .tree .cat { fill: var(--ink); font-size: 18px; }
+  .tree .word { fill: var(--sea); font-size: 19px; font-style: italic; }
+  .tree line { stroke: var(--branch); stroke-width: 1.2; stroke-linecap: round; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .tree line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 0.5s ease-out forwards; }
+    .tree text { opacity: 0; animation: appear 0.4s ease-out forwards; }
+    .tree .l1 { animation-delay: 0.15s; } .tree .l2 { animation-delay: 0.55s; } .tree .l3 { animation-delay: 0.95s; }
+    .tree .t0 { animation-delay: 0s; } .tree .t1 { animation-delay: 0.5s; } .tree .t2 { animation-delay: 0.9s; } .tree .t3 { animation-delay: 1.35s; }
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes appear { to { opacity: 1; } }
+
+  /* Sections */
+  main section { padding: 2.25rem 0 0.5rem; scroll-margin-top: 1rem; }
+  h2 { margin: 0 0 1rem; font-size: 1.65rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.005em; }
+  p { margin: 0 0 1rem; }
+
+  .themes { margin: 0; }
+  .themes dt { font-weight: 600; }
+  .themes dd { margin: 0 0 1.1rem; }
+
+  /* Publications */
+  .year { display: grid; grid-template-columns: 4.25rem 1fr; gap: 0 1rem; margin-bottom: 0.6rem; }
+  .year h3 { margin: 0; font-size: 1.05rem; font-weight: 400; color: var(--granite); line-height: 1.55; padding-top: 0.05rem; }
+  .pubs { list-style: none; margin: 0; padding: 0; }
+  .pubs li { margin: 0 0 1rem; font-size: 1.05rem; line-height: 1.5; }
+  .pubs .title { display: block; }
+  .pubs .authors { display: block; color: var(--granite); }
+  .pubs .venue { font-style: italic; }
+  .pubs strong { font-weight: 600; color: var(--ink); }
+
+  .plain { list-style: none; margin: 0; padding: 0; }
+  .plain li { margin: 0 0 0.6rem; }
+
+  .contact { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0.35rem 1rem; margin: 0; }
+  .contact dt { color: var(--granite); }
+  .contact dd { margin: 0; overflow-wrap: anywhere; }
+
+  footer { margin-top: 3rem; padding: 1.5rem 0 3rem; border-top: 1px solid var(--rule); color: var(--granite); font-size: 0.95rem; }
+
+  @media (max-width: 640px) {
+    body { font-size: 1.09rem; }
+    .hero { grid-template-columns: 1fr; padding: 2.75rem 0 2rem; }
+    .tree { width: 270px; }
+    .lede { font-size: 1.18rem; }
+    .year { grid-template-columns: 1fr; }
+    .year h3 { margin-bottom: 0.35rem; }
+    .contact { grid-template-columns: 1fr; gap: 0; }
+    .contact dd { margin-bottom: 0.7rem; }
+  }
+</style>
 </head>
-
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <nav aria-label="Primary">
-    <a class="nav-name" href="#top">Aarne Talman</a>
-
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <div class="nav-mobile" aria-label="Mobile menu">
-      <details>
-        <summary aria-label="Open menu">Menu</summary>
-        <div class="menu">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#publications">Publications</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </details>
-    </div>
+<div class="wrap">
+  <nav class="site-nav" aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-image">
-            <img
-              src="images/Image.jpg"
-              alt="Aarne Talman"
-              width="420"
-              height="420"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
+  <header class="hero">
+    <div>
+      <h1>Aarne Talman</h1>
+      <p class="lede">I study whether language models understand language, and how we could tell.</p>
+    </div>
+    <svg class="tree" viewBox="0 0 320 212" role="img" aria-label="A phrase-structure tree for the sentence: machines understand language?">
+      <text class="cat t0" x="150" y="22" text-anchor="middle">S</text>
+      <line class="l1" pathLength="1" x1="150" y1="30" x2="66" y2="62"/>
+      <line class="l1" pathLength="1" x1="150" y1="30" x2="214" y2="62"/>
+      <text class="cat t1" x="60" y="78" text-anchor="middle">NP</text>
+      <text class="cat t1" x="220" y="78" text-anchor="middle">VP</text>
+      <line class="l2" pathLength="1" x1="60" y1="86" x2="60" y2="174"/>
+      <line class="l2" pathLength="1" x1="214" y1="86" x2="176" y2="116"/>
+      <line class="l2" pathLength="1" x1="226" y1="86" x2="264" y2="116"/>
+      <text class="cat t2" x="170" y="132" text-anchor="middle">V</text>
+      <text class="cat t2" x="270" y="132" text-anchor="middle">NP</text>
+      <line class="l3" pathLength="1" x1="170" y1="140" x2="170" y2="174"/>
+      <line class="l3" pathLength="1" x1="270" y1="140" x2="270" y2="174"/>
+      <text class="word t3" x="60" y="194" text-anchor="middle">machines</text>
+      <text class="word t3" x="170" y="194" text-anchor="middle">understand</text>
+      <text class="word t3" x="270" y="194" text-anchor="middle">language?</text>
+    </svg>
+  </header>
 
-          <div class="hero-content">
-            <h1>Aarne Talman<span class="hero-subtitle">AI Engineering <span class="accent">Leader</span></span></h1>
-            <p class="hero-tagline">
-              Leading AI teams that deliver measurable performance gains. From LLM inference and training optimization to production ML systems.
-            </p>
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>I am a researcher in natural language processing and a Visiting Scholar in language technology at the University of Helsinki, where I also teach the course <em>Large Language Models and Generative AI for NLP</em>. Alongside research, I work as Senior Manager, Software Development at AMD Silo AI.</p>
+      <p>I received my PhD in language technology from the University of Helsinki in 2024. Before that I studied computational linguistics and formal grammar at King&rsquo;s College London and philosophy at the London School of Economics.</p>
+    </section>
 
-            <div class="hero-meta" aria-label="Key facts">
-              <div class="meta-item">
-                <div class="meta-value accent">PhD</div>
-                <div class="meta-label">Language Technology</div>
-              </div>
-              <div class="meta-item">
-                <div class="meta-value accent">20+</div>
-                <div class="meta-label">Years in Tech</div>
-              </div>
-            </div>
+    <section id="research">
+      <h2>Research</h2>
+      <dl class="themes">
+        <dt>Natural language understanding</dt>
+        <dd>Whether models that score well on inference benchmarks capture meaning, or exploit shortcuts in the data. My doctoral work showed that models can keep much of their performance even when the data is deliberately corrupted, and that results often fail to carry over from one benchmark to another.</dd>
+        <dt>Evaluating generative language models</dt>
+        <dd>I co-founded ELOQUENT, a lab of shared tasks at CLEF for assessing the quality of generative language models, and organise tasks within it.</dd>
+        <dt>Formal grammar and semantics</dt>
+        <dd>Grammar formalisms, formal semantics and what they can tell us about the abilities and limits of neural language models.</dd>
+      </dl>
+    </section>
 
-            <div class="hero-cta">
-              <a href="#contact">Get in Touch</a>
-            </div>
-          </div>
-        </div>
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <div class="year">
+        <h3>2025</h3>
+        <ul class="pubs">
+          <li>
+            <span class="title">Poro 34B and the blessing of multilinguality</span>
+            <span class="authors">R. Luukkonen, J. Burdge, E. Zosa, <strong>A. Talman</strong>, V. Komulainen, V. Hatanpää, P. Sarlin and S. Pyysalo</span>
+            <span class="venue">NoDaLiDa/Baltic-HLT 2025</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="year">
+        <h3>2024</h3>
+        <ul class="pubs">
+          <li>
+            <span class="title">Towards natural language understanding: developing and assessing approaches and benchmarks</span>
+            <span class="authors"><strong>A. Talman</strong></span>
+            <span class="venue">Doctoral dissertation, University of Helsinki</span>
+          </li>
+          <li>
+            <a class="title" href="https://doi.org/10.1007/978-3-031-71908-0_3">Overview of ELOQUENT 2024: shared tasks for evaluating generative language model quality</a>
+            <span class="authors">J. Karlgren, L. Dürlich, E. Gogoulou, L. Guillou, J. Nivre, M. Sahlgren, <strong>A. Talman</strong> and S. Zahra</span>
+            <span class="venue">CLEF 2024, Lecture Notes in Computer Science 14959</span>
+          </li>
+          <li>
+            <a class="title" href="https://ceur-ws.org/Vol-3740/">Overview of the &ldquo;Voight-Kampff&rdquo; generative AI authorship verification task at PAN and ELOQUENT 2024</a>
+            <span class="authors">J. Bevendorff, M. Wiegmann, J. Karlgren, L. Dürlich, E. Gogoulou, <strong>A. Talman</strong>, E. Stamatatos, M. Potthast and B. Stein</span>
+            <span class="venue">CLEF 2024 Working Notes</span>
+          </li>
+          <li>
+            <a class="title" href="https://ceur-ws.org/Vol-3740/">ELOQUENT 2024: robustness task</a>
+            <span class="authors">M. Sahlgren, J. Karlgren, L. Dürlich, E. Gogoulou, <strong>A. Talman</strong> and S. Zahra</span>
+            <span class="venue">CLEF 2024 Working Notes</span>
+          </li>
+          <li>
+            <a class="title" href="https://ceur-ws.org/Vol-3740/">ELOQUENT 2024: topical quiz task</a>
+            <span class="authors">J. Karlgren and <strong>A. Talman</strong></span>
+            <span class="venue">CLEF 2024 Working Notes</span>
+          </li>
+          <li>
+            <a class="title" href="https://doi.org/10.1007/978-3-031-56069-9_63">ELOQUENT CLEF shared tasks for evaluation of generative language model quality</a>
+            <span class="authors">J. Karlgren, L. Dürlich, E. Gogoulou, L. Guillou, J. Nivre, M. Sahlgren and <strong>A. Talman</strong></span>
+            <span class="venue">ECIR 2024, Lecture Notes in Computer Science 14612</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="year">
+        <h3>2023</h3>
+        <ul class="pubs">
+          <li>
+            <a class="title" href="https://aclanthology.org/2023.nodalida-1.37">Uncertainty-aware natural language inference with stochastic weight averaging</a>
+            <span class="authors"><strong>A. Talman</strong>, H. Celikkanat, S. Virpioja, M. Heinonen and J. Tiedemann</span>
+            <span class="venue">NoDaLiDa 2023</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="year">
+        <h3>2022</h3>
+        <ul class="pubs">
+          <li>
+            <a class="title" href="https://doi.org/10.18653/v1/2022.starsem-1.20">How does data corruption affect natural language understanding models? A study on GLUE datasets</a>
+            <span class="authors"><strong>A. Talman</strong>, M. Apidianaki, S. Chatzikyriakidis and J. Tiedemann</span>
+            <span class="venue">*SEM 2022</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="year">
+        <h3>2021</h3>
+        <ul class="pubs">
+          <li>
+            <a class="title" href="https://aclanthology.org/2021.nodalida-main.28">NLI data sanity check: assessing the effect of data corruption on model performance</a>
+            <span class="authors"><strong>A. Talman</strong>, M. Apidianaki, S. Chatzikyriakidis and J. Tiedemann</span>
+            <span class="venue">NoDaLiDa 2021</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="year">
+        <h3>2019</h3>
+        <ul class="pubs">
+          <li>
+            <a class="title" href="https://doi.org/10.1017/S1351324919000202">Sentence embeddings in NLI with iterative refinement encoders</a>
+            <span class="authors"><strong>A. Talman</strong>, A. Yli-Jyrä and J. Tiedemann</span>
+            <span class="venue">Natural Language Engineering 25(4)</span>
+          </li>
+          <li>
+            <a class="title" href="https://doi.org/10.18653/v1/W19-4810">Testing the generalization power of neural network models across NLI benchmarks</a>
+            <span class="authors"><strong>A. Talman</strong> and S. Chatzikyriakidis</span>
+            <span class="venue">BlackboxNLP 2019</span>
+          </li>
+          <li>
+            <a class="title" href="https://aclanthology.org/W19-6129">Predicting prosodic prominence from text with pre-trained contextualized word representations</a>
+            <span class="authors"><strong>A. Talman</strong>, A. Suni, H. Celikkanat, S. Kakouros, J. Tiedemann and M. Vainio</span>
+            <span class="venue">NoDaLiDa 2019</span>
+          </li>
+          <li>
+            <span class="title">The University of Helsinki submissions to the WMT19 news translation task</span>
+            <span class="authors"><strong>A. Talman</strong>, U. Sulubacak, R. Vázquez, Y. Scherrer, S. Virpioja, A. Raganato, A. Hurskainen and J. Tiedemann</span>
+            <span class="venue">WMT 2019</span>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section class="featured">
-      <div class="container">
-        <div class="featured-grid">
-          <div class="section-label">Featured Work</div>
-          <div class="featured-card">
-            <div class="featured-label">Latest</div>
-            <div class="featured-title">
-              <a href="https://rocm.blogs.amd.com/artificial-intelligence/scaling-ai-inference/README.html" target="_blank" rel="noopener noreferrer">Scaling AI Inference Performance with vLLM on AMD Instinct MI355X GPUs</a>
-            </div>
-            <p class="featured-description">Benchmarking LLM inference showing AMD MI355X delivering up to 1.4x higher throughput on DeepSeek-R1, with consistent advantages at scale for GPT-OSS-120B and Qwen3-235B workloads.</p>
-            <div class="featured-source">AMD ROCm Blogs, December 2025</div>
-          </div>
-        </div>
-      </div>
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul class="plain">
+        <li><a href="https://github.com/Helsinki-NLP/LLM-course-2025"><em>Large Language Models and Generative AI for NLP</em></a>, Master&rsquo;s course, University of Helsinki, every autumn since 2024, with Jussi Karlgren and Dmitry Kan.</li>
+        <li><em>Natural Language Understanding and Representation Learning</em>, Master&rsquo;s course, University of Helsinki, 2020, with Alessandro Raganato.</li>
+        <li>Supervision of Master&rsquo;s theses in language technology.</li>
+      </ul>
     </section>
 
-    <section class="about" id="about">
-      <div class="container">
-        <div class="about-grid">
-          <div class="section-label">About</div>
-          <div class="about-content">
-            <h2>Bridging research and production at the forefront of AI</h2>
-            <p class="about-text">
-              I lead AI software teams improving workload performance on AMD GPUs with a focus on LLM inference and training.
-              With a PhD in Language Technology and 20 years of experience at companies like Silo AI, Nordcloud,
-              Nokia, Gartner, and Accenture, I bring deep technical expertise and strategic vision to every challenge.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="experience" id="experience">
-      <div class="container">
-        <div class="section-label">Experience</div>
-
-        <div class="experience-grid">
-          <div></div>
-
-          <div class="experience-list" aria-label="Roles">
-            <div class="experience-item">
-              <div class="experience-role">Senior Manager, AI Software</div>
-              <div class="experience-company">AMD</div>
-              <p class="experience-summary">Leading teams improving LLM inference performance on AMD Instinct GPUs.</p>
-            </div>
-            <div class="experience-item">
-              <div class="experience-role">Visiting Scholar &amp; University Instructor</div>
-              <div class="experience-company">University of Helsinki</div>
-              <p class="experience-summary">Teaching Large Language Models and Generative AI for NLP to graduate students.</p>
-            </div>
-            <div class="experience-item">
-              <div class="experience-role">Senior Manager &amp; EMEA ML Lead</div>
-              <div class="experience-company">Accenture – Centre for Advanced AI</div>
-              <p class="experience-summary">AI and machine learning consulting with a focus on generative AI and LLMs for enterprise clients.</p>
-            </div>
-            <div class="experience-item">
-              <div class="experience-role">Head of R&amp;D, SiloGen</div>
-              <div class="experience-company">Silo AI (acquired by AMD)</div>
-              <p class="experience-summary">Led R&amp;D for SiloGen, building custom LLM solutions and multilingual language models.</p>
-            </div>
-            <div class="experience-item">
-              <div class="experience-role">CTO, UK</div>
-              <div class="experience-company">Nordcloud (acquired by IBM)</div>
-              <p class="experience-summary">Drove technology strategy and engineering for cloud-native solutions across the UK market.</p>
-            </div>
-            <div class="experience-item">
-              <div class="experience-role">Associate Director</div>
-              <div class="experience-company">Gartner</div>
-              <p class="experience-summary">Technology research and advisory for enterprise IT leaders on emerging technologies.</p>
-            </div>
-            <div class="experience-item">
-              <div class="experience-role">Product Manager, Search</div>
-              <div class="experience-company">Nokia</div>
-              <p class="experience-summary">Led product development for enterprise search and discovery experiences.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="publications" id="publications">
-      <div class="container">
-        <div class="section-label">Selected Publications <span class="section-hint">— <a class="inline-link" href="https://scholar.google.com/citations?hl=en&amp;user=Vhq5-s0AAAAJ" target="_blank" rel="noopener noreferrer">View complete list on Google Scholar</a></span></div>
-
-        <div class="publications-grid">
-          <div></div>
-
-          <div>
-            <div class="publications-list" aria-label="Selected publications">
-              <div class="publication-item">
-                <div class="publication-title"><a href="https://rocm.blogs.amd.com/artificial-intelligence/scaling-ai-inference/README.html" target="_blank" rel="noopener noreferrer">Scaling AI Inference Performance with vLLM on AMD Instinct MI355X GPUs</a></div>
-                <div class="publication-venue">AMD ROCm Blogs, 2025</div>
-                <div class="publication-meta">
-                  <span>J Hartikainen, A Talman, R Karhila, T Virolainen, et al.</span>
-                </div>
-              </div>
-
-              <div class="publication-item">
-                <div class="publication-title">Sentence embeddings in NLI with iterative refinement encoders</div>
-                <div class="publication-venue">Natural Language Engineering, 2019</div>
-                <div class="publication-meta">
-                  <span>A Talman, A Yli-Jyrä, J Tiedemann</span>
-                </div>
-              </div>
-
-              <div class="publication-item">
-                <div class="publication-title">Testing the generalization power of neural network models across NLI benchmarks</div>
-                <div class="publication-venue">ACL Workshop BlackboxNLP, 2019</div>
-                <div class="publication-meta">
-                  <span>A Talman, S Chatzikyriakidis</span>
-                </div>
-              </div>
-
-              <div class="publication-item">
-                <div class="publication-title">Predicting prosodic prominence from text with pre-trained contextualized word representations</div>
-                <div class="publication-venue">Nordic Conference on Computational Linguistics, 2019</div>
-                <div class="publication-meta">
-                  <span>A Talman, A Suni, H Celikkanat, S Kakouros, J Tiedemann, M Vainio</span>
-                </div>
-              </div>
-
-              <div class="publication-item">
-                <div class="publication-title">Poro 34B and the blessing of multilinguality</div>
-                <div class="publication-venue">Nordic Conference on Computational Linguistics, 2025</div>
-                <div class="publication-meta">
-                  <span>R Luukkonen, J Burdge, E Zosa, A Talman, et al.</span>
-                </div>
-              </div>
-
-              <div class="publication-item">
-                <div class="publication-title">Uncertainty-Aware Natural Language Inference with Stochastic Weight Averaging</div>
-                <div class="publication-venue">Nordic Conference on Computational Linguistics, 2023</div>
-                <div class="publication-meta">
-                  <span>A Talman, H Celikkanat, S Virpioja, M Heinonen, J Tiedemann</span>
-                </div>
-              </div>
-            </div>
-
-            <a href="https://scholar.google.com/citations?hl=en&amp;user=Vhq5-s0AAAAJ" class="scholar-link" target="_blank" rel="noopener noreferrer">
-              View all publications on Google Scholar →
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="education" id="education">
-      <div class="container">
-        <div class="section-label">Education</div>
-
-        <div class="education-grid">
-          <div></div>
-
-          <div class="education-list" aria-label="Degrees">
-            <div class="education-item">
-              <div class="education-degree">PhD, Language Technology</div>
-              <div class="education-school">University of Helsinki</div>
-            </div>
-            <div class="education-item">
-              <div class="education-degree">MSc, Computational Linguistics</div>
-              <div class="education-school">King's College London</div>
-            </div>
-            <div class="education-item">
-              <div class="education-degree">BSc, Philosophy &amp; Logic</div>
-              <div class="education-school">London School of Economics</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="container">
-        <h2>Let's <span>connect</span></h2>
-        <p class="contact-subtitle">Available for speaking engagements on AI engineering, LLM inference and training, and production ML.<br>Happy to connect with teams exploring high-performance AI on AMD GPUs.</p>
-        <div class="contact-links">
-          <a href="mailto:aarne@talman.fi" class="contact-link primary">Email</a>
-          <a href="https://www.linkedin.com/in/talman/" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/aarnetalman" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
-      </div>
+    <section id="contact">
+      <h2>Contact</h2>
+      <dl class="contact">
+        <dt>Email</dt><dd><a href="mailto:aarne.talman@helsinki.fi">aarne.talman@helsinki.fi</a></dd>
+        <dt>CV</dt><dd><a href="talman_aarne_cv.pdf">Curriculum vitae (PDF)</a></dd>
+        <dt>ORCID</dt><dd><a href="https://orcid.org/0000-0002-3573-5993">0000-0002-3573-5993</a></dd>
+        <dt>GitHub</dt><dd><a href="https://github.com/aarnetalman">aarnetalman</a></dd>
+        <dt>Research portal</dt><dd><a href="https://researchportal.helsinki.fi/en/persons/aarne-talman">University of Helsinki</a></dd>
+      </dl>
     </section>
   </main>
 
-  <footer>
-    <p class="footer-text">© 2026 Aarne Talman</p>
-  </footer>
-
-  <script src="main.js"></script>
+  <footer>Aarne Talman, Helsinki</footer>
+</div>
 </body>
 </html>
