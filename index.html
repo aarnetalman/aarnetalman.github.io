@@ -97,6 +97,14 @@
   .pubs .venue { font-style: italic; }
   .pubs strong { font-weight: 600; color: var(--ink); }
 
+  /* Experience */
+  .roles { list-style: none; margin: 0; padding: 0; }
+  .roles li { display: grid; grid-template-columns: 6.2rem 1fr; gap: 0 1rem; margin: 0 0 1rem; font-size: 1.05rem; line-height: 1.5; }
+  .roles .yr { color: var(--granite); }
+  .roles .role { display: block; font-weight: 600; }
+  .roles .org { display: block; }
+  .roles .what { display: block; color: var(--granite); }
+
   .plain { list-style: none; margin: 0; padding: 0; }
   .plain li { margin: 0 0 0.6rem; }
 
@@ -112,6 +120,7 @@
     .portrait { width: 9.5rem; order: -1; }
     .lede { font-size: 1.18rem; }
     .pubs li { grid-template-columns: 2.9rem 1fr; gap: 0 0.75rem; }
+    .roles li { grid-template-columns: 1fr; }
     .contact { grid-template-columns: 1fr; gap: 0; }
     .contact dd { margin-bottom: 0.7rem; }
   }
@@ -124,6 +133,7 @@
     <a href="#research">Research</a>
     <a href="#publications">Publications</a>
     <a href="#teaching">Teaching</a>
+    <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -289,6 +299,75 @@
         <li><a href="https://github.com/Helsinki-NLP/LLM-course-2025"><em>Large Language Models and Generative AI for NLP</em></a>, Master&rsquo;s course, University of Helsinki, every autumn since 2024, with Jussi Karlgren and Dmitry Kan.</li>
         <li><em>Natural Language Understanding and Representation Learning</em>, Master&rsquo;s course, University of Helsinki, 2020, with Alessandro Raganato.</li>
         <li>Supervision of Master&rsquo;s theses in language technology.</li>
+      </ul>
+    </section>
+
+    <section id="experience">
+      <h2>Industry experience</h2>
+      <p>I have worked in industry for about twenty years, from software engineering to leading AI teams. At Silo AI I was responsible for a 6 million euro Business Finland programme on trustworthy large language models, and co-led a 12 million GPU-hour allocation on the LUMI supercomputer for language model pre-training.</p>
+      <ul class="roles">
+        <li>
+          <span class="yr">2025&ndash;</span>
+          <div>
+            <span class="role">Senior Manager, Software Development</span>
+            <span class="org">AMD Silo AI, Helsinki</span>
+              <span class="what">AI software development, focusing on large-model inference and performance on AMD GPUs.</span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2024&ndash;2025</span>
+          <div>
+            <span class="role">Data &amp; AI Senior Manager</span>
+            <span class="org">Accenture, Helsinki</span>
+              <span class="what">Led the Machine Learning and Computational Science practice and the Model Customization capability at the EMEA Centre for Advanced AI.</span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2023&ndash;2024</span>
+          <div>
+            <span class="role">Head of Technology</span>
+            <span class="org">SiloGen (Silo AI), Helsinki</span>
+              <span class="what">Technology lead for open large language models, including Poro.</span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2021&ndash;2023</span>
+          <div>
+            <span class="role">Senior AI Engineer, Lead AI Engineer and Lead AI Scientist</span>
+            <span class="org">Silo AI, London and Helsinki</span>
+              <span class="what">Natural language processing, search, speech recognition and natural language understanding.</span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2020&ndash;2021</span>
+          <div>
+            <span class="role">UK CTO and Global ML Practice Lead</span>
+            <span class="org">Nordcloud, United Kingdom</span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2019&ndash;2020</span>
+          <div>
+            <span class="role">Founder and CEO</span>
+            <span class="org">Basement AI, Finland and United Kingdom</span>
+              <span class="what">A research lab and consultancy in NLP and machine learning.</span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2012&ndash;2018</span>
+          <div>
+            <span class="role">Management consultant</span>
+            <span class="org">Gartner and Accenture, Helsinki</span>
+              <span class="what">Technology and analytics strategy for high-tech and telecoms clients.</span>
+          </div>
+        </li>
+        <li>
+          <span class="yr">2006&ndash;2011</span>
+          <div>
+            <span class="role">Software engineering and R&amp;D management</span>
+            <span class="org">Nokia, Tieto and Valuatum</span>
+          </div>
+        </li>
       </ul>
     </section>
 
