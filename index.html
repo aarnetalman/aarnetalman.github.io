@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aarne Talman</title>
-<meta name="description" content="Aarne Talman: research on natural language understanding, the evaluation of language models, and formal grammar and semantics.">
+<meta name="description" content="Aarne Talman is a computational linguist and language technology researcher working on natural language understanding, reasoning and natural language inference.">
+<link rel="canonical" href="https://talman.fi/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://talman.fi/">
+<meta property="og:title" content="Aarne Talman">
+<meta property="og:description" content="Computational linguist and language technology researcher: natural language understanding, reasoning and natural language inference.">
+<meta property="og:image" content="https://talman.fi/portrait.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232C5A70'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' text-anchor='middle' fill='%23F4F6F5'%3EA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
@@ -79,10 +87,11 @@
   .themes dd { margin: 0 0 1.1rem; }
 
   /* Publications */
-  .year { display: grid; grid-template-columns: 4.25rem 1fr; gap: 0 1rem; margin-bottom: 0.6rem; }
-  .year h3 { margin: 0; font-size: 1.05rem; font-weight: 400; color: var(--granite); line-height: 1.55; padding-top: 0.05rem; }
+  .pubnote { color: var(--granite); font-size: 1rem; margin: -0.4rem 0 1.4rem; }
+  h3.group { margin: 1.6rem 0 0.8rem; font-size: 1.2rem; font-weight: 500; }
   .pubs { list-style: none; margin: 0; padding: 0; }
-  .pubs li { margin: 0 0 1rem; font-size: 1.05rem; line-height: 1.5; }
+  .pubs li { display: grid; grid-template-columns: 3.6rem 1fr; gap: 0 1rem; margin: 0 0 1rem; font-size: 1.05rem; line-height: 1.5; }
+  .pubs .yr { color: var(--granite); }
   .pubs .title { display: block; }
   .pubs .authors { display: block; color: var(--granite); }
   .pubs .venue { font-style: italic; }
@@ -91,7 +100,7 @@
   .plain { list-style: none; margin: 0; padding: 0; }
   .plain li { margin: 0 0 0.6rem; }
 
-  .contact { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0.35rem 1rem; margin: 0; }
+  .contact { display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.35rem 1rem; margin: 0; }
   .contact dt { color: var(--granite); }
   .contact dd { margin: 0; overflow-wrap: anywhere; }
 
@@ -102,8 +111,7 @@
     .hero { grid-template-columns: 1fr; padding: 2.75rem 0 2rem; }
     .portrait { width: 9.5rem; order: -1; }
     .lede { font-size: 1.18rem; }
-    .year { grid-template-columns: 1fr; }
-    .year h3 { margin-bottom: 0.35rem; }
+    .pubs li { grid-template-columns: 2.9rem 1fr; gap: 0 0.75rem; }
     .contact { grid-template-columns: 1fr; gap: 0; }
     .contact dd { margin-bottom: 0.7rem; }
   }
@@ -130,130 +138,149 @@
   <main>
     <section id="about">
       <h2>About</h2>
-      <p>I am a Visiting Scholar in language technology at the University of Helsinki, where I also teach the course <em>Large Language Models and Generative AI for NLP</em>. Alongside research, I work as Senior Manager, Software Development at AMD Silo AI.</p>
+      <p>I&rsquo;m a Visiting Scholar in language technology at the University of Helsinki, where I also teach the course <em>Large Language Models and Generative AI for NLP</em>. Alongside research, I work as Senior Manager, Software Development at AMD Silo AI.</p>
       <p>I received my PhD in language technology from the University of Helsinki in 2024. Before that I studied computational linguistics and formal grammar at King&rsquo;s College London and philosophy at the London School of Economics.</p>
     </section>
 
     <section id="research">
       <h2>Research</h2>
       <dl class="themes">
-        <dt>Natural language understanding</dt>
-        <dd>Whether models that score well on language understanding benchmarks capture meaning, or exploit shortcuts in the data. My doctoral work showed that models can keep much of their performance even when benchmark data is deliberately corrupted, and that results often fail to carry over from one benchmark to another.</dd>
-        <dt>Evaluating generative language models</dt>
-        <dd>I am one of the organisers of ELOQUENT, a lab of shared tasks at CLEF for assessing the quality of generative language models, and have been involved since its first edition in 2024.</dd>
-        <dt>Formal grammar and semantics</dt>
-        <dd>Grammar formalisms, formal semantics and what they can tell us about the abilities and limits of neural language models.</dd>
+        <dt>Natural language inference and reasoning</dt>
+        <dd>Whether models can draw the inferences that understanding a language requires, and how such reasoning can be modelled with machine learning. My work here includes sentence encoder architectures for natural language inference and inference models that can express their own uncertainty.</dd>
+        <dt>Evaluating language understanding</dt>
+        <dd>Whether models that score well on language understanding benchmarks capture meaning, or exploit shortcuts in the data. My doctoral work showed that models can keep much of their performance even when benchmark data is deliberately corrupted, and that results often fail to carry over from one benchmark to another. I also organise shared tasks in ELOQUENT, a lab at CLEF for evaluating generative language models.</dd>
+        <dt>Meaning and understanding</dt>
+        <dd>What understanding language consists of, and what formal semantics and logic can tell us about the abilities and limits of neural language models.</dd>
       </dl>
     </section>
 
     <section id="publications">
       <h2>Publications</h2>
+      <p class="pubnote">Also on <a href="https://scholar.google.com/citations?user=Vhq5-s0AAAAJ&amp;hl=en">Google Scholar</a>.</p>
 
-      <div class="year">
-        <h3>2025</h3>
-        <ul class="pubs">
+      <h3 class="group">Journal and conference papers</h3>
+      <ul class="pubs">
           <li>
-            <a class="title" href="https://aclanthology.org/2025.nodalida-1.40">Poro 34B and the blessing of multilinguality</a>
-            <span class="authors">R. Luukkonen, J. Burdge, E. Zosa, <strong>A. Talman</strong>, V. Komulainen, V. Hatanpää, P. Sarlin and S. Pyysalo</span>
-            <span class="venue">NoDaLiDa/Baltic-HLT 2025</span>
+            <span class="yr">2025</span>
+            <div>
+              <a class="title" href="https://aclanthology.org/2025.nodalida-1.40">Poro 34B and the blessing of multilinguality</a>
+              <span class="authors">R. Luukkonen, J. Burdge, E. Zosa, <strong>A. Talman</strong>, V. Komulainen, V. Hatanpää, P. Sarlin and S. Pyysalo</span>
+              <span class="venue">NoDaLiDa/Baltic-HLT 2025</span>
+            </div>
           </li>
-        </ul>
-      </div>
+          <li>
+            <span class="yr">2023</span>
+            <div>
+              <a class="title" href="https://aclanthology.org/2023.nodalida-1.37">Uncertainty-aware natural language inference with stochastic weight averaging</a>
+              <span class="authors"><strong>A. Talman</strong>, H. Celikkanat, S. Virpioja, M. Heinonen and J. Tiedemann</span>
+              <span class="venue">NoDaLiDa 2023</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2022</span>
+            <div>
+              <a class="title" href="https://doi.org/10.18653/v1/2022.starsem-1.20">How does data corruption affect natural language understanding models? A study on GLUE datasets</a>
+              <span class="authors"><strong>A. Talman</strong>, M. Apidianaki, S. Chatzikyriakidis and J. Tiedemann</span>
+              <span class="venue">*SEM 2022</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2021</span>
+            <div>
+              <a class="title" href="https://aclanthology.org/2021.nodalida-main.28">NLI data sanity check: assessing the effect of data corruption on model performance</a>
+              <span class="authors"><strong>A. Talman</strong>, M. Apidianaki, S. Chatzikyriakidis and J. Tiedemann</span>
+              <span class="venue">NoDaLiDa 2021</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2019</span>
+            <div>
+              <a class="title" href="https://doi.org/10.1017/S1351324919000202">Sentence embeddings in NLI with iterative refinement encoders</a>
+              <span class="authors"><strong>A. Talman</strong>, A. Yli-Jyrä and J. Tiedemann</span>
+              <span class="venue">Natural Language Engineering 25(4)</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2019</span>
+            <div>
+              <a class="title" href="https://doi.org/10.18653/v1/W19-4810">Testing the generalization power of neural network models across NLI benchmarks</a>
+              <span class="authors"><strong>A. Talman</strong> and S. Chatzikyriakidis</span>
+              <span class="venue">BlackboxNLP 2019</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2019</span>
+            <div>
+              <a class="title" href="https://aclanthology.org/W19-6129">Predicting prosodic prominence from text with pre-trained contextualized word representations</a>
+              <span class="authors"><strong>A. Talman</strong>, A. Suni, H. Celikkanat, S. Kakouros, J. Tiedemann and M. Vainio</span>
+              <span class="venue">NoDaLiDa 2019</span>
+            </div>
+          </li>
+          <li>
+            <span class="yr">2019</span>
+            <div>
+              <a class="title" href="https://aclanthology.org/W19-5347/">The University of Helsinki submissions to the WMT19 news translation task</a>
+              <span class="authors"><strong>A. Talman</strong>, U. Sulubacak, R. Vázquez, Y. Scherrer, S. Virpioja, A. Raganato, A. Hurskainen and J. Tiedemann</span>
+              <span class="venue">WMT 2019</span>
+            </div>
+          </li>
+      </ul>
 
-      <div class="year">
-        <h3>2024</h3>
-        <ul class="pubs">
+      <h3 class="group">Doctoral dissertation</h3>
+      <ul class="pubs">
           <li>
-            <a class="title" href="https://hdl.handle.net/10138/568130">Towards natural language understanding: developing and assessing approaches and benchmarks</a>
-            <span class="authors"><strong>A. Talman</strong></span>
-            <span class="venue">Doctoral dissertation, University of Helsinki</span>
+            <span class="yr">2024</span>
+            <div>
+              <a class="title" href="https://hdl.handle.net/10138/568130">Towards natural language understanding: developing and assessing approaches and benchmarks</a>
+              <span class="authors"><strong>A. Talman</strong></span>
+              <span class="venue">Doctoral dissertation, University of Helsinki</span>
+            </div>
           </li>
-          <li>
-            <a class="title" href="https://doi.org/10.1007/978-3-031-71908-0_3">Overview of ELOQUENT 2024: shared tasks for evaluating generative language model quality</a>
-            <span class="authors">J. Karlgren, L. Dürlich, E. Gogoulou, L. Guillou, J. Nivre, M. Sahlgren, <strong>A. Talman</strong> and S. Zahra</span>
-            <span class="venue">CLEF 2024, Lecture Notes in Computer Science 14959</span>
-          </li>
-          <li>
-            <a class="title" href="https://ceur-ws.org/Vol-3740/">Overview of the &ldquo;Voight-Kampff&rdquo; generative AI authorship verification task at PAN and ELOQUENT 2024</a>
-            <span class="authors">J. Bevendorff, M. Wiegmann, J. Karlgren, L. Dürlich, E. Gogoulou, <strong>A. Talman</strong>, E. Stamatatos, M. Potthast and B. Stein</span>
-            <span class="venue">CLEF 2024 Working Notes</span>
-          </li>
-          <li>
-            <a class="title" href="https://ceur-ws.org/Vol-3740/">ELOQUENT 2024: robustness task</a>
-            <span class="authors">M. Sahlgren, J. Karlgren, L. Dürlich, E. Gogoulou, <strong>A. Talman</strong> and S. Zahra</span>
-            <span class="venue">CLEF 2024 Working Notes</span>
-          </li>
-          <li>
-            <a class="title" href="https://ceur-ws.org/Vol-3740/">ELOQUENT 2024: topical quiz task</a>
-            <span class="authors">J. Karlgren and <strong>A. Talman</strong></span>
-            <span class="venue">CLEF 2024 Working Notes</span>
-          </li>
-          <li>
-            <a class="title" href="https://doi.org/10.1007/978-3-031-56069-9_63">ELOQUENT CLEF shared tasks for evaluation of generative language model quality</a>
-            <span class="authors">J. Karlgren, L. Dürlich, E. Gogoulou, L. Guillou, J. Nivre, M. Sahlgren and <strong>A. Talman</strong></span>
-            <span class="venue">ECIR 2024, Lecture Notes in Computer Science 14612</span>
-          </li>
-        </ul>
-      </div>
+      </ul>
 
-      <div class="year">
-        <h3>2023</h3>
-        <ul class="pubs">
+      <h3 class="group">Shared task overviews</h3>
+      <ul class="pubs">
           <li>
-            <a class="title" href="https://aclanthology.org/2023.nodalida-1.37">Uncertainty-aware natural language inference with stochastic weight averaging</a>
-            <span class="authors"><strong>A. Talman</strong>, H. Celikkanat, S. Virpioja, M. Heinonen and J. Tiedemann</span>
-            <span class="venue">NoDaLiDa 2023</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="year">
-        <h3>2022</h3>
-        <ul class="pubs">
-          <li>
-            <a class="title" href="https://doi.org/10.18653/v1/2022.starsem-1.20">How does data corruption affect natural language understanding models? A study on GLUE datasets</a>
-            <span class="authors"><strong>A. Talman</strong>, M. Apidianaki, S. Chatzikyriakidis and J. Tiedemann</span>
-            <span class="venue">*SEM 2022</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="year">
-        <h3>2021</h3>
-        <ul class="pubs">
-          <li>
-            <a class="title" href="https://aclanthology.org/2021.nodalida-main.28">NLI data sanity check: assessing the effect of data corruption on model performance</a>
-            <span class="authors"><strong>A. Talman</strong>, M. Apidianaki, S. Chatzikyriakidis and J. Tiedemann</span>
-            <span class="venue">NoDaLiDa 2021</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="year">
-        <h3>2019</h3>
-        <ul class="pubs">
-          <li>
-            <a class="title" href="https://doi.org/10.1017/S1351324919000202">Sentence embeddings in NLI with iterative refinement encoders</a>
-            <span class="authors"><strong>A. Talman</strong>, A. Yli-Jyrä and J. Tiedemann</span>
-            <span class="venue">Natural Language Engineering 25(4)</span>
+            <span class="yr">2024</span>
+            <div>
+              <a class="title" href="https://doi.org/10.1007/978-3-031-71908-0_3">Overview of ELOQUENT 2024: shared tasks for evaluating generative language model quality</a>
+              <span class="authors">J. Karlgren, L. Dürlich, E. Gogoulou, L. Guillou, J. Nivre, M. Sahlgren, <strong>A. Talman</strong> and S. Zahra</span>
+              <span class="venue">CLEF 2024, Lecture Notes in Computer Science 14959</span>
+            </div>
           </li>
           <li>
-            <a class="title" href="https://doi.org/10.18653/v1/W19-4810">Testing the generalization power of neural network models across NLI benchmarks</a>
-            <span class="authors"><strong>A. Talman</strong> and S. Chatzikyriakidis</span>
-            <span class="venue">BlackboxNLP 2019</span>
+            <span class="yr">2024</span>
+            <div>
+              <a class="title" href="https://ceur-ws.org/Vol-3740/">Overview of the &ldquo;Voight-Kampff&rdquo; generative AI authorship verification task at PAN and ELOQUENT 2024</a>
+              <span class="authors">J. Bevendorff, M. Wiegmann, J. Karlgren, L. Dürlich, E. Gogoulou, <strong>A. Talman</strong>, E. Stamatatos, M. Potthast and B. Stein</span>
+              <span class="venue">CLEF 2024 Working Notes</span>
+            </div>
           </li>
           <li>
-            <a class="title" href="https://aclanthology.org/W19-6129">Predicting prosodic prominence from text with pre-trained contextualized word representations</a>
-            <span class="authors"><strong>A. Talman</strong>, A. Suni, H. Celikkanat, S. Kakouros, J. Tiedemann and M. Vainio</span>
-            <span class="venue">NoDaLiDa 2019</span>
+            <span class="yr">2024</span>
+            <div>
+              <a class="title" href="https://ceur-ws.org/Vol-3740/">ELOQUENT 2024: robustness task</a>
+              <span class="authors">M. Sahlgren, J. Karlgren, L. Dürlich, E. Gogoulou, <strong>A. Talman</strong> and S. Zahra</span>
+              <span class="venue">CLEF 2024 Working Notes</span>
+            </div>
           </li>
           <li>
-            <a class="title" href="https://aclanthology.org/W19-5347/">The University of Helsinki submissions to the WMT19 news translation task</a>
-            <span class="authors"><strong>A. Talman</strong>, U. Sulubacak, R. Vázquez, Y. Scherrer, S. Virpioja, A. Raganato, A. Hurskainen and J. Tiedemann</span>
-            <span class="venue">WMT 2019</span>
+            <span class="yr">2024</span>
+            <div>
+              <a class="title" href="https://ceur-ws.org/Vol-3740/">ELOQUENT 2024: topical quiz task</a>
+              <span class="authors">J. Karlgren and <strong>A. Talman</strong></span>
+              <span class="venue">CLEF 2024 Working Notes</span>
+            </div>
           </li>
-        </ul>
-      </div>
+          <li>
+            <span class="yr">2024</span>
+            <div>
+              <a class="title" href="https://doi.org/10.1007/978-3-031-56069-9_63">ELOQUENT CLEF shared tasks for evaluation of generative language model quality</a>
+              <span class="authors">J. Karlgren, L. Dürlich, E. Gogoulou, L. Guillou, J. Nivre, M. Sahlgren and <strong>A. Talman</strong></span>
+              <span class="venue">ECIR 2024, Lecture Notes in Computer Science 14612</span>
+            </div>
+          </li>
+      </ul>
     </section>
 
     <section id="teaching">
@@ -270,6 +297,7 @@
       <dl class="contact">
         <dt>Email</dt><dd><a href="mailto:aarne.talman@helsinki.fi">aarne.talman@helsinki.fi</a></dd>
         <dt>CV</dt><dd><a href="talman_aarne_cv.pdf">Curriculum vitae (PDF)</a></dd>
+        <dt>Google Scholar</dt><dd><a href="https://scholar.google.com/citations?user=Vhq5-s0AAAAJ&amp;hl=en">Profile</a></dd>
         <dt>ORCID</dt><dd><a href="https://orcid.org/0000-0002-3573-5993">0000-0002-3573-5993</a></dd>
         <dt>GitHub</dt><dd><a href="https://github.com/aarnetalman">aarnetalman</a></dd>
         <dt>Research portal</dt><dd><a href="https://researchportal.helsinki.fi/en/persons/aarne-talman">University of Helsinki</a></dd>
