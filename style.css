@@ -1,0 +1,107 @@
+/* talman.fi */
+
+:root {
+  --paper: #F4F6F5;
+  --ink: #1C2830;
+  --sea: #2C5A70;
+  --granite: #5F686F;
+  --rule: #D6DCD9;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #11171B;
+    --ink: #E3E8EA;
+    --sea: #94BCD0;
+    --granite: #9AA4AA;
+    --rule: #28323A;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--paper); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 1.1875rem;
+  line-height: 1.62;
+  font-optical-sizing: auto;
+  font-variant-numeric: oldstyle-nums;
+}
+.wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.5rem; }
+
+a { color: var(--sea); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--sea); outline-offset: 3px; border-radius: 2px; }
+
+/* Header */
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.35rem 1.4rem; padding: 1.5rem 0 0; font-size: 1rem; }
+.site-nav a { color: var(--granite); text-decoration: none; }
+.site-nav a:hover { color: var(--ink); text-decoration: underline; }
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 1.5rem 2.5rem;
+  padding: 4rem 0 3rem;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2.9rem, 8vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+.lede { margin: 1.1rem 0 0; font-size: 1.22rem; line-height: 1.5; max-width: 30rem; }
+.portrait { display: block; width: 15rem; height: auto; aspect-ratio: 4 / 5; border-radius: 3px; }
+
+/* Sections */
+main section { padding: 2.25rem 0 0.5rem; scroll-margin-top: 1rem; }
+h2 { margin: 0 0 1rem; font-size: 1.65rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.005em; }
+p { margin: 0 0 1rem; }
+
+.themes { margin: 0; }
+.themes dt { font-weight: 600; }
+.themes dd { margin: 0 0 1.1rem; }
+
+/* Publications */
+.pubnote { color: var(--granite); font-size: 1rem; margin: -0.4rem 0 1.4rem; }
+h3.group { margin: 1.6rem 0 0.8rem; font-size: 1.2rem; font-weight: 500; }
+.pubs { list-style: none; margin: 0; padding: 0; }
+.pubs li { display: grid; grid-template-columns: 3.6rem 1fr; gap: 0 1rem; margin: 0 0 1rem; font-size: 1.05rem; line-height: 1.5; }
+.pubs .yr { color: var(--granite); }
+.pubs .title { display: block; }
+.pubs .authors { display: block; color: var(--granite); }
+.pubs .venue { font-style: italic; }
+.pubs strong { font-weight: 600; color: var(--ink); }
+
+/* Experience */
+.roles { list-style: none; margin: 0; padding: 0; }
+.roles li { display: grid; grid-template-columns: 6.2rem 1fr; gap: 0 1rem; margin: 0 0 1rem; font-size: 1.05rem; line-height: 1.5; }
+.roles .yr { color: var(--granite); }
+.roles .role { display: block; font-weight: 600; }
+.roles .org { display: block; }
+.roles .what { display: block; color: var(--granite); }
+
+.plain { list-style: none; margin: 0; padding: 0; }
+.plain li { margin: 0 0 0.6rem; }
+
+.contact { display: grid; grid-template-columns: 8.5rem 1fr; gap: 0.35rem 1rem; margin: 0; }
+.contact dt { color: var(--granite); }
+.contact dd { margin: 0; overflow-wrap: anywhere; }
+
+footer { margin-top: 3rem; padding: 1.5rem 0 3rem; border-top: 1px solid var(--rule); color: var(--granite); font-size: 0.95rem; }
+
+@media (max-width: 640px) {
+  body { font-size: 1.09rem; }
+  .hero { grid-template-columns: 1fr; padding: 2.75rem 0 2rem; }
+  .portrait { width: 9.5rem; order: -1; }
+  .lede { font-size: 1.18rem; }
+  .pubs li { grid-template-columns: 2.9rem 1fr; gap: 0 0.75rem; }
+  .roles li { grid-template-columns: 1fr; }
+  .contact { grid-template-columns: 1fr; gap: 0; }
+  .contact dd { margin-bottom: 0.7rem; }
+}
