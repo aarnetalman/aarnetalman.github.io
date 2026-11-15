@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aarne Talman</title>
-<meta name="description" content="Aarne Talman is a computational linguist and language technology researcher working on natural language understanding, reasoning and natural language inference.">
+<meta name="description" content="Aarne Talman is a computational linguist and language technology researcher working on natural language understanding, reasoning, natural language inference and formal semantics.">
 <link rel="canonical" href="https://talman.fi/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://talman.fi/">
 <meta property="og:title" content="Aarne Talman">
-<meta property="og:description" content="Computational linguist and language technology researcher: natural language understanding, reasoning and natural language inference.">
+<meta property="og:description" content="Computational linguist and language technology researcher: natural language understanding, reasoning, natural language inference and formal semantics.">
 <meta property="og:image" content="https://talman.fi/portrait.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#E8D9B9" media="(prefers-color-scheme: light)">
@@ -34,7 +34,7 @@
     { "@type": "CollegeOrUniversity", "name": "King's College London" },
     { "@type": "CollegeOrUniversity", "name": "London School of Economics and Political Science" }
   ],
-  "knowsAbout": ["Natural language understanding", "Natural language inference", "Large language models", "Language model evaluation"],
+  "knowsAbout": ["Natural language understanding", "Natural language inference", "Formal semantics", "Proof assistants", "Large language models", "Language model evaluation"],
   "sameAs": [
     "https://orcid.org/0000-0002-3573-5993",
     "https://scholar.google.com/citations?user=Vhq5-s0AAAAJ",
@@ -84,7 +84,7 @@
     <div>
       <h1>Aarne Talman</h1>
       <p class="subtitle">Computational linguist</p>
-      <p class="lede">I&rsquo;m a computational linguist and language technology researcher. My research focuses on natural language understanding, reasoning and natural language inference using machine learning. I&rsquo;m interested in what understanding language consists of, how it can be modelled in AI and how these models can be evaluated.</p>
+      <p class="lede">I&rsquo;m a computational linguist and language technology researcher. My research focuses on natural language understanding, reasoning and inference, combining machine learning with formal semantics and logic. I&rsquo;m interested in what understanding language consists of, how it can be modelled in AI and how these models can be evaluated.</p>
     </div>
     <img class="portrait" src="portrait.jpg" width="480" height="600" alt="Portrait of Aarne Talman">
   </header>
@@ -93,7 +93,7 @@
     <section id="about">
       <h2>About</h2>
       <div class="sec-body">
-        <p>I&rsquo;m a Visiting Scholar in language technology at the University of Helsinki, where I also teach the course <em>Large Language Models and Generative AI for NLP</em>. Alongside research, I work as Senior Manager, Software Development at AMD Silo AI.</p>
+        <p>I&rsquo;m a Visiting Scholar in language technology at the University of Helsinki, where I also teach the course <em>Large Language Models and Generative AI for NLP</em>. My current research connects formal semantics and language models: how proof assistants can make theories of meaning precise and comparable, and how such formal resources can be used to evaluate what language models understand. Alongside research, I work as Senior Manager, Software Development at AMD Silo AI.</p>
         <p>My path has combined research and industry. After studying philosophy and logic at the London School of Economics and computational linguistics and formal grammar at King&rsquo;s College London, I spent over a decade in software engineering, R&amp;D management and technology consulting, at Nokia, Gartner and Accenture among others. I then returned to research for my PhD in language technology at the University of Helsinki, completed in 2024 alongside industry roles leading AI and language model work. More under <a href="#experience">Industry experience</a>.</p>
       </div>
     </section>
@@ -106,12 +106,12 @@
           <dd>Whether models can draw the inferences that understanding a language requires, and how such reasoning can be modelled with machine learning. My work here includes sentence encoder architectures for natural language inference and inference models that can express their own uncertainty.</dd>
           <dt>Evaluating language understanding</dt>
           <dd>Whether models that score well on language understanding benchmarks capture meaning, or exploit shortcuts in the data. My doctoral work showed that models can keep much of their performance even when benchmark data is deliberately corrupted, and that results often fail to carry over from one benchmark to another. My recent work revisits these questions with large language models: their robustness on familiar inference benchmarks turns out to reflect dataset shortcuts rather than memorised test data.</dd>
+          <dt>Formal semantics and proof assistants</dt>
+          <dd>What understanding language consists of, and what formal semantics and logic can tell us about the abilities and limits of language models. With Stergios Chatzikyriakidis I co-authored a paper on the <a href="https://github.com/StergiosCha/formal_atlas_of_semantics">Formal Atlas</a>, which he developed. It uses the Rocq proof assistant to formalise theories of meaning, from Montague&rsquo;s PTQ and Gallin&rsquo;s Ty2 to dynamic, type-theoretic and probabilistic accounts, so that their predictions can be checked and the theories compared, and I will be contributing to its development. Such resources also give controlled inference problems with a checked proof or countermodel, and we propose using them to test whether language models draw the inferences they appear to.</dd>
           <dt>Shared tasks</dt>
           <dd>I co-organise ELOQUENT, a lab of shared tasks at CLEF for evaluating generative language models. I organised its Topical Quiz task and co-organised the Robustness task in 2024, and for ELOQUENT 2027 I am co-organising <a href="https://stergioscha.github.io/fragments-task/">Fragments</a>, a task that asks whether a language model can learn a language from its specification alone.</dd>
           <dt>Multilingual large language models</dt>
           <dd>How to build capable open language models for smaller languages. As Head of R&amp;D at SiloGen I led the development of <a href="https://aclanthology.org/2025.nodalida-1.40">Poro 1</a> (Poro 34B), an openly released 34-billion-parameter model for Finnish, English and code, pre-trained on the LUMI supercomputer. It showed that training on several languages together can give a strong model for a language with limited data.</dd>
-          <dt>Meaning and understanding</dt>
-          <dd>What understanding language consists of, and what formal semantics and logic can tell us about the abilities and limits of neural language models.</dd>
         </dl>
       </div>
     </section>
