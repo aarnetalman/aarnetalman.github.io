@@ -157,3 +157,18 @@ footer { padding: 1.5rem 0 3rem; border-top: 1px solid var(--rule); color: var(-
   .contact { grid-template-columns: 1fr; gap: 0; }
   .contact dd { margin-bottom: 0.7rem; }
 }
+
+/* Skip link: hidden until focused with the keyboard */
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 20;
+  padding: 0.5rem 0.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  border-radius: 6px;
+  text-decoration: none;
+}
+.skip:focus { top: 0.6rem; }

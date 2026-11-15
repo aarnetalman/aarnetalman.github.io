@@ -13,16 +13,42 @@
 <meta property="og:image" content="https://talman.fi/portrait.jpg">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232C5A70'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' text-anchor='middle' fill='%23F4F6F5'%3EA%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aarne Talman",
+  "url": "https://talman.fi/",
+  "image": "https://talman.fi/portrait.jpg",
+  "jobTitle": "Computational linguist and language technology researcher",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Helsinki" },
+  "worksFor": { "@type": "Organization", "name": "AMD Silo AI" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "University of Helsinki" },
+    { "@type": "CollegeOrUniversity", "name": "King's College London" },
+    { "@type": "CollegeOrUniversity", "name": "London School of Economics and Political Science" }
+  ],
+  "knowsAbout": ["Natural language understanding", "Natural language inference", "Large language models", "Language model evaluation"],
+  "sameAs": [
+    "https://orcid.org/0000-0002-3573-5993",
+    "https://scholar.google.com/citations?user=Vhq5-s0AAAAJ",
+    "https://github.com/aarnetalman",
+    "https://www.linkedin.com/in/talman/",
+    "https://researchportal.helsinki.fi/en/persons/aarne-talman"
+  ]
+}
+</script>
 </head>
 <body>
+<a class="skip" href="#content">Skip to content</a>
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href="#top">Aarne Talman</a>
     <nav class="links" aria-label="Sections">
+      <a href="#about">About</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
       <a href="#talks">Talks</a>
@@ -33,6 +59,7 @@
     <details class="menu">
       <summary>Menu</summary>
       <nav aria-label="Sections">
+        <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#talks">Talks</a>
@@ -54,7 +81,7 @@
     <img class="portrait" src="portrait.jpg" width="480" height="600" alt="Portrait of Aarne Talman">
   </header>
 
-  <main>
+  <main id="content">
     <section id="about">
       <h2>About</h2>
       <div class="sec-body">
@@ -70,7 +97,7 @@
           <dt>Natural language inference and reasoning</dt>
           <dd>Whether models can draw the inferences that understanding a language requires, and how such reasoning can be modelled with machine learning. My work here includes sentence encoder architectures for natural language inference and inference models that can express their own uncertainty.</dd>
           <dt>Evaluating language understanding</dt>
-          <dd>Whether models that score well on language understanding benchmarks capture meaning, or exploit shortcuts in the data. My doctoral work showed that models can keep much of their performance even when benchmark data is deliberately corrupted, and that results often fail to carry over from one benchmark to another. I also organise shared tasks in ELOQUENT, a lab at CLEF for evaluating generative language models.</dd>
+          <dd>Whether models that score well on language understanding benchmarks capture meaning, or exploit shortcuts in the data. My doctoral work showed that models can keep much of their performance even when benchmark data is deliberately corrupted, and that results often fail to carry over from one benchmark to another. My recent work revisits these questions with large language models: their robustness on familiar inference benchmarks turns out to reflect dataset shortcuts rather than memorised test data. I also co-organise ELOQUENT, a lab of shared tasks at CLEF for evaluating generative language models. In 2024 I organised its Topical Quiz task and co-organised the Robustness task, and I am co-organising tasks for the proposed 2027 edition.</dd>
           <dt>Meaning and understanding</dt>
           <dd>What understanding language consists of, and what formal semantics and logic can tell us about the abilities and limits of neural language models.</dd>
         </dl>
@@ -330,9 +357,9 @@
       <h2>Teaching</h2>
       <div class="sec-body">
         <ul class="plain">
-          <li><a href="https://github.com/Helsinki-NLP/LLM-Course-2026"><em>Large Language Models and Generative AI for NLP</em></a>, Master&rsquo;s course, University of Helsinki, every autumn since 2024, with Jussi Karlgren and Dmitry Kan.</li>
+          <li><em>Large Language Models and Generative AI for NLP</em>, Master&rsquo;s course, University of Helsinki, every autumn since 2024, with Jussi Karlgren and Dmitry Kan. I designed the syllabus and teach four of the seven weeks; in 2026, language models and pretraining, post-training, inference, and the course recap. Course materials: <a href="https://github.com/Helsinki-NLP/LLM-Course-2026">2026</a>, <a href="https://github.com/Helsinki-NLP/LLM-course-2025">2025</a>, <a href="https://github.com/Helsinki-NLP/LLM-course-2024">2024</a>.</li>
           <li><em>Natural Language Understanding and Representation Learning</em>, Master&rsquo;s course, University of Helsinki, 2020, with Alessandro Raganato.</li>
-          <li>Supervision of Master&rsquo;s theses in language technology.</li>
+          <li>Supervision of Master&rsquo;s theses in language technology, including Jaakko Kuurne, <a href="https://helda.helsinki.fi/items/ef08b419-a925-4e2e-b3bc-4e22d5e65448"><em>Fine-tuning Open-weight Large Language Model for Expense Classification</em></a> (2025, co-supervisor).</li>
         </ul>
       </div>
     </section>
@@ -424,7 +451,7 @@
     </section>
   </main>
 
-  <footer>Aarne Talman, Helsinki</footer>
+  <footer>Aarne Talman, Helsinki &middot; Updated November 2026</footer>
 </div>
 <script src="script.js" defer></script>
 </body>
