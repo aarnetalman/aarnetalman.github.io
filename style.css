@@ -13,14 +13,14 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Leather brown and terracotta */
-    --paper: #2B2019;
-    --ink: #EDE0C8;
-    --sea: #E09A73;
-    --accent: #D88A62;
-    --granite: #B5A58E;
-    --rule: #4A3A2E;
-    --mat: #3A2C22;
+    /* Lamp black and terracotta */
+    --paper: #1C1B19;
+    --ink: #E9DEC6;
+    --sea: #E0937A;
+    --accent: #D8826A;
+    --granite: #ABA294;
+    --rule: #3A3732;
+    --mat: #272522;
   }
 }
 
