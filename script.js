@@ -19,7 +19,7 @@
   if (!btn) return;
   var root = document.documentElement;
   var media = window.matchMedia('(prefers-color-scheme: dark)');
-  var paper = { light: '#E8D9B9', dark: '#1C1B19' };
+  var paper = { light: '#f3f5f4', dark: '#111816' };
 
   function current() { return root.dataset.theme || (media.matches ? 'dark' : 'light'); }
   function sync() {
