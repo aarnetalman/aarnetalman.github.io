@@ -139,12 +139,14 @@ h3.group { margin-top: 12px; padding-top: 16px; border-top: 1px solid var(--line
 .pubs a.title:hover { text-decoration: underline; }
 .pubs .authors { display: block; color: var(--muted); }
 .pubs strong { font-weight: 600; color: var(--ink); }
-/* Venues as pills */
-.pubs .venue {
-  display: inline-block; margin-top: 6px;
-  font-size: 12px; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor;
-  color: var(--accent); white-space: normal;
+.pubs .venue { display: block; color: var(--muted); font-size: 13px; }
+/* Links as pills: PDF, DOI, proceedings */
+.actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.pill {
+  font-size: 12px; line-height: 1.5; padding: 2px 9px; border-radius: 999px; border: 1px solid currentColor;
+  white-space: nowrap; color: var(--accent); text-decoration: none;
 }
+.pill:hover { background: var(--accent); border-color: var(--accent); color: var(--surface); }
 .roles .role { display: block; font-weight: 600; }
 .roles .org { display: block; }
 .roles .what { display: block; color: var(--muted); }
