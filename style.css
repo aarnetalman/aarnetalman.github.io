@@ -104,12 +104,16 @@ main { display: flex; flex-direction: column; gap: 28px; }
 .hero .lede { margin-top: 14px; font-size: 17px; line-height: 1.55; }
 .portrait { display: block; width: 168px; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); }
 
-/* Stat tiles */
+/* Tiles */
 .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
 .tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
-.tile .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
-.tile .value { font-family: var(--display); font-size: 28px; line-height: 1.15; font-variant-numeric: tabular-nums; }
-.tile.highlight { border-left: 4px solid var(--accent); }
+
+/* Research-area tiles: link to the matching theme under Research */
+.tile.area { color: var(--ink); text-decoration: none; gap: 6px; transition: border-color 0.15s; }
+.tile.area:hover { border-color: var(--accent); }
+.tile.area:hover .name { color: var(--accent); }
+.tile .name { font-family: var(--display); font-size: 18px; font-weight: 600; line-height: 1.25; text-wrap: balance; }
+.tile .desc { font-size: 13px; color: var(--muted); line-height: 1.45; }
 
 /* Sections as cards */
 main section { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; display: flex; flex-direction: column; gap: 12px; }
@@ -163,8 +167,7 @@ footer { color: var(--muted); font-size: 13px; text-align: center; }
   main { gap: 20px; }
   .hero { grid-template-columns: 1fr; gap: 16px; padding-top: 4px; }
   .portrait { width: 112px; order: -1; }
-  .tiles { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .tile .value { font-size: 24px; }
+  .tiles { grid-template-columns: 1fr; gap: 10px; }
   main section { padding: 16px; }
   .roles li { grid-template-columns: 1fr; }
   .contact { grid-template-columns: 1fr; gap: 0; }

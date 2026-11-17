@@ -89,12 +89,12 @@
     <img class="portrait" src="portrait.jpg" width="480" height="600" alt="Portrait of Aarne Talman">
   </header>
 
-  <div class="tiles">
-    <div class="tile highlight"><span class="label">PhD, Helsinki</span><span class="value">2024</span></div>
-    <div class="tile"><span class="label">Publications</span><span class="value">16</span></div>
-    <div class="tile"><span class="label">Teaching LLMs</span><span class="value">Since 2024</span></div>
-    <div class="tile"><span class="label">In industry</span><span class="value">20 years</span></div>
-  </div>
+  <nav class="tiles" aria-label="Research areas">
+    <a class="tile area" href="#area-inference"><span class="name">Natural language inference and reasoning</span><span class="desc">Whether models draw the inferences that understanding requires.</span></a>
+    <a class="tile area" href="#area-evaluation"><span class="name">Evaluating language understanding</span><span class="desc">What benchmark scores measure, and the shortcuts models exploit.</span></a>
+    <a class="tile area" href="#area-formal"><span class="name">Formal semantics and proof assistants</span><span class="desc">Formalising and comparing theories of meaning in Rocq.</span></a>
+    <a class="tile area" href="#area-multilingual"><span class="name">Multilingual large language models</span><span class="desc">Open models for smaller languages, such as Poro.</span></a>
+  </nav>
 
   <main id="content">
     <section id="about">
@@ -109,15 +109,15 @@
       <h2>Research</h2>
       <div class="sec-body">
         <dl class="themes">
-          <dt>Natural language inference and reasoning</dt>
+          <dt id="area-inference">Natural language inference and reasoning</dt>
           <dd>Whether models can draw the inferences that understanding a language requires, and how such reasoning can be modelled with machine learning. My work here includes sentence encoder architectures for natural language inference and inference models that can express their own uncertainty.</dd>
-          <dt>Evaluating language understanding</dt>
+          <dt id="area-evaluation">Evaluating language understanding</dt>
           <dd>Whether models that score well on language understanding benchmarks capture meaning, or exploit shortcuts in the data. My doctoral work showed that models can keep much of their performance even when benchmark data is deliberately corrupted, and that results often fail to carry over from one benchmark to another. My recent work revisits these questions with large language models: their robustness on familiar inference benchmarks turns out to reflect dataset shortcuts rather than memorised test data.</dd>
-          <dt>Formal semantics and proof assistants</dt>
+          <dt id="area-formal">Formal semantics and proof assistants</dt>
           <dd>What understanding language consists of, and what formal semantics and logic can tell us about the abilities and limits of language models. With Stergios Chatzikyriakidis I co-authored <a href="https://arxiv.org/abs/2611.19509">a paper</a> on the <a href="https://github.com/StergiosCha/formal_atlas_of_semantics">Formal Atlas</a>. It uses the Rocq proof assistant to formalise theories of meaning, from Montague&rsquo;s PTQ and Gallin&rsquo;s Ty2 to dynamic, type-theoretic and probabilistic accounts, so that their predictions can be checked and the theories compared. Such resources also give controlled inference problems with a checked proof or countermodel, and we propose using them to test whether language models draw the inferences they appear to.</dd>
           <dt>Shared tasks</dt>
           <dd>I co-organise ELOQUENT, a lab of shared tasks at CLEF for evaluating generative language models. I organised its Topical Quiz task and co-organised the Robustness task in 2024, and for ELOQUENT 2027 I am co-organising <a href="https://stergioscha.github.io/fragments-task/">Fragments</a>, a task that asks whether a language model can learn a language from its specification alone.</dd>
-          <dt>Multilingual large language models</dt>
+          <dt id="area-multilingual">Multilingual large language models</dt>
           <dd>How to build capable open language models for smaller languages. As Head of R&amp;D at SiloGen I led the development of <a href="https://aclanthology.org/2025.nodalida-1.40">Poro 1</a> (Poro 34B), an openly released 34-billion-parameter model for Finnish, English and code, pre-trained on the LUMI supercomputer. It showed that training on several languages together can give a strong model for a language with limited data.</dd>
         </dl>
       </div>
