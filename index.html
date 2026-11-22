@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aarne Talman</title>
-<meta name="description" content="Aarne Talman is a computational linguist and language technology researcher working on natural language understanding, reasoning, natural language inference, formal semantics and formal grammars.">
+<meta name="description" content="Aarne Talman is a computational linguist and language technology researcher who evaluates, constrains and extends neural language models with formal theories of grammar, semantics and inference.">
 <link rel="canonical" href="https://talman.fi/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://talman.fi/">
 <meta property="og:title" content="Aarne Talman">
-<meta property="og:description" content="Computational linguist and language technology researcher: natural language understanding, reasoning, natural language inference and formal semantics.">
+<meta property="og:description" content="Computational linguist and language technology researcher: evaluating, constraining and extending language models with formal theories of grammar, semantics and inference.">
 <meta property="og:image" content="https://talman.fi/portrait.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#f3f5f4" media="(prefers-color-scheme: light)">
@@ -34,7 +34,7 @@
     { "@type": "CollegeOrUniversity", "name": "King's College London" },
     { "@type": "CollegeOrUniversity", "name": "London School of Economics and Political Science" }
   ],
-  "knowsAbout": ["Natural language understanding", "Natural language inference", "Formal semantics", "Formal grammars", "Large language models", "Language model evaluation"],
+  "knowsAbout": ["Natural language understanding", "Natural language inference", "Language model evaluation", "Formal semantics", "Formal grammars", "Prosody", "Neuro-symbolic reasoning", "Large language models"],
   "sameAs": [
     "https://orcid.org/0000-0002-3573-5993",
     "https://scholar.google.com/citations?user=Vhq5-s0AAAAJ",
@@ -84,42 +84,56 @@
     <div>
       <h1>Aarne Talman</h1>
       <p class="subtitle">Computational linguist</p>
-      <p class="lede">I&rsquo;m a computational linguist and language technology researcher. My research focuses on natural language understanding, reasoning and inference, combining machine learning with formal semantics and logic. I&rsquo;m interested in what understanding language consists of, how it can be modelled in AI and how these models can be evaluated.</p>
+      <p class="lede">I&rsquo;m a computational linguist and language technology researcher. Large language models are fluent and capable, but their success on benchmarks tells us surprisingly little about what they understand. My aim is to evaluate, constrain and extend neural language models with formal theories of grammar, semantics and inference, so that their behaviour can be checked rather than only measured.</p>
     </div>
     <img class="portrait" src="portrait.jpg" width="480" height="600" alt="Portrait of Aarne Talman">
   </header>
 
   <nav class="tiles" aria-label="Research areas">
-    <a class="tile area" href="#area-inference"><span class="name">Natural language inference and reasoning</span><span class="desc">Whether models draw the inferences that understanding requires.</span></a>
-    <a class="tile area" href="#area-evaluation"><span class="name">Evaluating language understanding</span><span class="desc">What benchmark scores measure, and the shortcuts models exploit.</span></a>
-    <a class="tile area" href="#area-formal"><span class="name">Formal semantics and formal grammars</span><span class="desc">Theories of meaning, and grammar formalisms for incremental syntax.</span></a>
-    <a class="tile area" href="#area-multilingual"><span class="name">Multilingual large language models</span><span class="desc">Open models for smaller languages, such as Poro.</span></a>
+    <a class="tile area" href="#pillar-evaluation"><span class="name">Formally grounded evaluation of LLMs</span><span class="desc">Diagnostic benchmarks that separate shortcuts, memorisation and inference.</span></a>
+    <a class="tile area" href="#pillar-formal"><span class="name">Formal semantics, grammar and prosody</span><span class="desc">Type-theoretic semantics, formal grammar and the prosody&ndash;meaning interface.</span></a>
+    <a class="tile area" href="#pillar-neurosymbolic"><span class="name">Neuro-symbolic reasoning</span><span class="desc">Proof-supported inference and grammar-constrained decoding.</span></a>
   </nav>
 
   <main id="content">
     <section id="about">
       <h2>About</h2>
       <div class="sec-body">
-        <p>I&rsquo;m a Visiting Scholar in language technology at the University of Helsinki, where I also teach the course <em>Large Language Models and Generative AI for NLP</em>. My current research connects formal semantics and formal grammars with language models: making theories of meaning and grammar precise and comparable, and using such formal resources to evaluate what language models understand. Alongside research, I work as Senior Manager, Software Development at AMD Silo AI.</p>
-        <p>My path has combined research and industry. After studying philosophy and logic at the London School of Economics and computational linguistics and formal grammar at King&rsquo;s College London, I spent over a decade in software engineering, R&amp;D management and technology consulting, at Nokia, Gartner and Accenture among others. I then returned to research for my PhD in language technology at the University of Helsinki, completed in 2024 alongside industry roles leading AI and language model work. More under <a href="#experience">Industry experience</a>.</p>
+        <p>I&rsquo;m a Visiting Scholar in language technology at the University of Helsinki, where I designed and teach the Master&rsquo;s course <em>Large Language Models and Generative AI for NLP</em>. My research connects three communities that seldom work on the same problems: formal semantics and grammar, empirical evaluation of natural language understanding, and the engineering of large-scale language model systems. I build diagnostic benchmarks, formal resources and neuro-symbolic methods that show where neural models generalise, where they rely on shortcuts, and where formal structure can make their inferences verifiable.</p>
+        <p>My training is in logic and formal grammar, at the London School of Economics and King&rsquo;s College London. After over a decade in software engineering, R&amp;D management and technology consulting, at Nokia, Gartner and Accenture among others, I returned to research for my PhD in language technology at the University of Helsinki, completed with distinction in 2024. I now lead large-model inference infrastructure and performance engineering at AMD Silo AI. This industry experience lets me treat formal semantics and grammar as design tools for current models and inference systems, not only as theories to compare them against. More under <a href="#experience">Industry experience</a>.</p>
       </div>
     </section>
 
     <section id="research">
       <h2>Research</h2>
       <div class="sec-body">
+        <p>Formal linguistics and logic give precise accounts of grammar, meaning and inference, but have rarely been used to test or constrain neural models at scale. My work brings the two together in three strands.</p>
         <dl class="themes">
-          <dt id="area-inference">Natural language inference and reasoning</dt>
-          <dd>Whether models can draw the inferences that understanding a language requires, and how such reasoning can be modelled with machine learning. My work here includes sentence encoder architectures for natural language inference and inference models that can express their own uncertainty.</dd>
-          <dt id="area-evaluation">Evaluating language understanding</dt>
-          <dd>Whether models that score well on language understanding benchmarks capture meaning, or exploit shortcuts in the data. My doctoral work showed that models can keep much of their performance even when benchmark data is deliberately corrupted, and that results often fail to carry over from one benchmark to another. My recent work revisits these questions with large language models: their robustness on familiar inference benchmarks turns out to reflect dataset shortcuts rather than memorised test data.</dd>
-          <dt id="area-formal">Formal semantics and formal grammars</dt>
-          <dd>What understanding language consists of, and what formal semantics and logic can tell us about the abilities and limits of language models. With Stergios Chatzikyriakidis I co-authored <a href="https://arxiv.org/abs/2611.19509">a paper</a> on the <a href="https://github.com/StergiosCha/formal_atlas_of_semantics">Formal Atlas</a>, which uses a proof assistant to formalise theories of meaning, from Montague&rsquo;s PTQ to dynamic, type-theoretic and probabilistic accounts, so that their predictions can be checked and the theories compared. I also work on formal grammars, returning to the topic of my master&rsquo;s dissertation: Path Grammars, a formalism for incremental syntax inspired by Dynamic Syntax, in which a derivation follows a path through the tree from left to right and words are produced in the order they are heard. We study their generative capacity, from context-free to mildly context-sensitive.</dd>
-          <dt>Shared tasks</dt>
-          <dd>I co-organise ELOQUENT, a lab of shared tasks at CLEF for evaluating generative language models. I organised its Topical Quiz task and co-organised the Robustness task in 2024, and for ELOQUENT 2027 I am co-organising <a href="https://stergioscha.github.io/fragments-task/">Fragments</a>, a task that asks whether a language model can learn a language from its specification alone.</dd>
-          <dt id="area-multilingual">Multilingual large language models</dt>
-          <dd>How to build capable open language models for smaller languages. As Head of R&amp;D at SiloGen I led the development of <a href="https://aclanthology.org/2025.nodalida-1.40">Poro 1</a> (Poro 34B), an openly released 34-billion-parameter model for Finnish, English and code, pre-trained on the LUMI supercomputer. It showed that training on several languages together can give a strong model for a language with limited data.</dd>
+          <dt id="pillar-evaluation">Formally grounded and diagnostic evaluation of LLMs</dt>
+          <dd>Leaderboard scores mix up shortcut exploitation, memorisation and inference. I test how and why models generalise, and what a benchmark can and cannot distinguish.
+            <ul class="points">
+              <li><strong>Shortcuts versus memorisation.</strong> My doctoral work showed that models trained on one NLI dataset generalise poorly to others, and that they keep much of their accuracy when the words a human reader needs are removed. In <a href="https://arxiv.org/abs/2611.16843">recent work</a> I revisit these experiments with eight LLMs: without nouns, models answering directly keep 36&ndash;72% of their above-chance performance on MNLI but only 14&ndash;29% on ANLI. On 368 new, human-validated items that no model can have seen, this robustness follows the cues in the data, not prior exposure to the benchmark.</li>
+              <li><strong>Uncertainty.</strong> My work on uncertainty-aware NLI treats disagreement between annotators as information rather than noise, and models it directly.</li>
+              <li><strong>Community benchmarking.</strong> I co-organised the ELOQUENT lab at CLEF in 2024 (Robustness and Topical Quiz tasks) and co-organise its 2027 edition, where the <a href="https://stergioscha.github.io/fragments-task/">Fragments</a> task, with Stergios Chatzikyriakidis, tests interpretation rather than surface fluency.</li>
+            </ul>
+          </dd>
+          <dt id="pillar-formal">Formal semantics, grammar and the prosody&ndash;meaning interface</dt>
+          <dd>Evaluating or constraining neural models requires explicit accounts of linguistic structure and meaning.
+            <ul class="points">
+              <li><strong>Formal frameworks.</strong> I work on type-theoretic semantics and formal grammar. With Stergios Chatzikyriakidis I am writing a monograph on the formalisation of natural language meaning, and I contribute to the <a href="https://github.com/StergiosCha/formal_atlas_of_semantics">Formal Atlas</a>, a library of formalised semantic theories in the Rocq proof assistant (<a href="https://arxiv.org/abs/2611.19509">paper</a>). We also work on Path Grammars, a mechanised analysis of the generative capacity of Dynamic Syntax, continuing the topic of my master&rsquo;s dissertation.</li>
+              <li><strong>Prosody and meaning.</strong> Building on my work on predicting prosodic prominence from text and the Helsinki Prosody Corpus, I study how prominence and focus connect acoustic cues to semantic interpretation, using current speech and language models. A <a href="https://arxiv.org/abs/2611.25808">recent preprint</a> finds that language models represent more about emphasis than prompting brings out.</li>
+            </ul>
+          </dd>
+          <dt id="pillar-neurosymbolic">Neuro-symbolic reasoning and constrained inference</dt>
+          <dd>Over the next five years I aim to move from diagnosing the failures of neural models to building neuro-symbolic methods that address them.
+            <ul class="points">
+              <li><strong>Proof-supported NLI.</strong> Combining LLMs with formal semantic representations and theorem provers, so that entailment judgements can be checked by a proof or refuted by a countermodel. The Formal Atlas provides controlled problems for comparing model-only, retrieval-assisted and proof-supported systems.</li>
+              <li><strong>Grammar-constrained decoding.</strong> Using formal grammars and automata to constrain generation at inference time, and studying how to enforce syntactic and semantic well-formedness without unacceptable latency. My experience with LLM inference systems is directly relevant here.</li>
+              <li><strong>Formal expressivity.</strong> Which linguistic phenomena Transformers can and cannot represent, and therefore which need symbolic support by design.</li>
+            </ul>
+          </dd>
         </dl>
+        <p class="muted"><strong>Open science.</strong> I release models, corpora, diagnostic datasets and code under open licences, including the HBMP NLI encoder, the Helsinki Prosody Corpus, NLU diagnostic suites, uncertainty-aware NLI code and contributions to Poro 34B.</p>
       </div>
     </section>
 
@@ -419,14 +433,14 @@
     <section id="experience">
       <h2>Industry experience</h2>
       <div class="sec-body">
-        <p>I have worked in industry for about twenty years, from software engineering to leading AI teams. At Silo AI I was responsible for a 6 million euro Business Finland programme on trustworthy large language models, and co-led a 12 million GPU-hour allocation on the LUMI supercomputer for language model pre-training.</p>
+        <p>I have worked in industry for about twenty years, from software engineering to leading AI teams. At Silo AI I was responsible leader of a 6 million euro Business Finland programme on trustworthy and reliable large language models, led a 1.15 million euro work package in the European Commission&rsquo;s DeployAI consortium, and was co-PI of a 12 million GPU-hour LUMI Extreme Scale allocation for language model pre-training.</p>
         <ul class="roles">
           <li>
             <span class="yr">2025&ndash;</span>
             <div>
               <span class="role">Senior Manager, Software Development</span>
               <span class="org">AMD Silo AI, Helsinki</span>
-                <span class="what">AI software development, focusing on large-model inference and performance on AMD GPUs.</span>
+                <span class="what">Leading large-model inference infrastructure and performance engineering on AMD GPUs.</span>
             </div>
           </li>
           <li>
@@ -442,7 +456,7 @@
             <div>
               <span class="role">Head of R&amp;D</span>
               <span class="org">SiloGen (Silo AI), Helsinki</span>
-                <span class="what">Led research and development of open large language models, including Poro.</span>
+                <span class="what">Responsible for research on open multilingual large language models, including Poro.</span>
             </div>
           </li>
           <li>
