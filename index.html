@@ -84,7 +84,7 @@
     <div>
       <h1>Aarne Talman</h1>
       <p class="subtitle">Computational linguist</p>
-      <p class="lede">I&rsquo;m a computational linguist and language technology researcher. Large language models are fluent and capable, but their success on benchmarks tells us surprisingly little about what they understand. My aim is to evaluate, constrain and extend neural language models with formal theories of grammar, semantics and inference, so that their behaviour can be checked rather than only measured.</p>
+      <p class="lede">I&rsquo;m a computational linguist and language technology researcher. I study what language models understand, and how formal theories of grammar, semantics and inference can be used to evaluate, constrain and extend them.</p>
     </div>
     <img class="portrait" src="portrait.jpg" width="480" height="600" alt="Portrait of Aarne Talman">
   </header>
@@ -99,41 +99,22 @@
     <section id="about">
       <h2>About</h2>
       <div class="sec-body">
-        <p>I&rsquo;m a Visiting Scholar in language technology at the University of Helsinki, where I designed and teach the Master&rsquo;s course <em>Large Language Models and Generative AI for NLP</em>. My research connects three communities that seldom work on the same problems: formal semantics and grammar, empirical evaluation of natural language understanding, and the engineering of large-scale language model systems. I build diagnostic benchmarks, formal resources and neuro-symbolic methods that show where neural models generalise, where they rely on shortcuts, and where formal structure can make their inferences verifiable.</p>
-        <p>My training is in logic and formal grammar, at the London School of Economics and King&rsquo;s College London. After over a decade in software engineering, R&amp;D management and technology consulting, at Nokia, Gartner and Accenture among others, I returned to research for my PhD in language technology at the University of Helsinki, completed with distinction in 2024. I now lead large-model inference infrastructure and performance engineering at AMD Silo AI. This industry experience lets me treat formal semantics and grammar as design tools for current models and inference systems, not only as theories to compare them against. More under <a href="#experience">Industry experience</a>.</p>
+        <p>I&rsquo;m a Visiting Scholar in language technology at the University of Helsinki, where I designed and teach the course <em>Large Language Models and Generative AI for NLP</em>. Alongside research, I lead large-model inference infrastructure and performance engineering at AMD Silo AI.</p>
+        <p>My training is in logic and formal grammar, at the London School of Economics and King&rsquo;s College London. After over a decade in industry, I returned to research for my PhD in language technology at the University of Helsinki, completed with distinction in 2024. More under <a href="#experience">Industry experience</a>.</p>
       </div>
     </section>
 
     <section id="research">
       <h2>Research</h2>
       <div class="sec-body">
-        <p>Formal linguistics and logic give precise accounts of grammar, meaning and inference, but have rarely been used to test or constrain neural models at scale. My work brings the two together in three strands.</p>
         <dl class="themes">
-          <dt id="pillar-evaluation">Formally grounded and diagnostic evaluation of LLMs</dt>
-          <dd>Leaderboard scores mix up shortcut exploitation, memorisation and inference. I test how and why models generalise, and what a benchmark can and cannot distinguish.
-            <ul class="points">
-              <li><strong>Shortcuts versus memorisation.</strong> My doctoral work showed that models trained on one NLI dataset generalise poorly to others, and that they keep much of their accuracy when the words a human reader needs are removed. In <a href="https://arxiv.org/abs/2611.16843">recent work</a> I revisit these experiments with eight LLMs: without nouns, models answering directly keep 36&ndash;72% of their above-chance performance on MNLI but only 14&ndash;29% on ANLI. On 368 new, human-validated items that no model can have seen, this robustness follows the cues in the data, not prior exposure to the benchmark.</li>
-              <li><strong>Uncertainty.</strong> My work on uncertainty-aware NLI treats disagreement between annotators as information rather than noise, and models it directly.</li>
-              <li><strong>Community benchmarking.</strong> I co-organised the ELOQUENT lab at CLEF in 2024 (Robustness and Topical Quiz tasks) and co-organise its 2027 edition, where the <a href="https://stergioscha.github.io/fragments-task/">Fragments</a> task, with Stergios Chatzikyriakidis, asks whether a language model can learn a language from its specification alone.</li>
-            </ul>
-          </dd>
-          <dt id="pillar-formal">Formal semantics, grammar and the prosody&ndash;meaning interface</dt>
-          <dd>Evaluating or constraining neural models requires explicit accounts of linguistic structure and meaning.
-            <ul class="points">
-              <li><strong>Formal frameworks.</strong> I work on type-theoretic semantics and formal grammar. With Stergios Chatzikyriakidis I am writing a monograph on the formalisation of natural language meaning, and I contribute to the <a href="https://github.com/StergiosCha/formal_atlas_of_semantics">Formal Atlas</a>, a library of formalised semantic theories in the Rocq proof assistant (<a href="https://arxiv.org/abs/2611.19509">paper</a>). We also work on Path Grammars, a mechanised analysis of the generative capacity of Dynamic Syntax, continuing the topic of my master&rsquo;s dissertation.</li>
-              <li><strong>Prosody and meaning.</strong> Building on my work on predicting prosodic prominence from text and the Helsinki Prosody Corpus, I study how prominence and focus connect acoustic cues to semantic interpretation, using current speech and language models. A <a href="https://arxiv.org/abs/2611.25808">recent preprint</a> finds that language models represent more about emphasis than prompting brings out.</li>
-            </ul>
-          </dd>
-          <dt id="pillar-neurosymbolic">Neuro-symbolic reasoning and constrained inference</dt>
-          <dd>Over the next five years I aim to move from diagnosing the failures of neural models to building neuro-symbolic methods that address them.
-            <ul class="points">
-              <li><strong>Proof-supported NLI.</strong> Combining LLMs with formal semantic representations and theorem provers, so that entailment judgements can be checked by a proof or refuted by a countermodel. The Formal Atlas provides controlled problems for comparing model-only, retrieval-assisted and proof-supported systems.</li>
-              <li><strong>Grammar-constrained decoding.</strong> Using formal grammars and automata to constrain generation at inference time, and studying how to enforce syntactic and semantic well-formedness without unacceptable latency. My experience with LLM inference systems is directly relevant here.</li>
-              <li><strong>Formal expressivity.</strong> Which linguistic phenomena Transformers can and cannot represent, and therefore which need symbolic support by design.</li>
-            </ul>
-          </dd>
+          <dt id="pillar-evaluation">Formally grounded evaluation of LLMs</dt>
+          <dd>What benchmark scores really measure: shortcuts, memorisation or inference. My doctoral work showed that models keep much of their accuracy when the words a reader needs are removed, and <a href="https://arxiv.org/abs/2611.16843">recent work</a> shows that the robustness of LLMs follows cues in the data, not prior exposure to the benchmark. I also work on uncertainty-aware inference, and co-organise the ELOQUENT lab at CLEF, including the 2027 <a href="https://stergioscha.github.io/fragments-task/">Fragments</a> task.</dd>
+          <dt id="pillar-formal">Formal semantics, grammar and prosody</dt>
+          <dd>Type-theoretic semantics and formal grammar. With Stergios Chatzikyriakidis I am writing a monograph on formalising natural language meaning, contribute to the <a href="https://github.com/StergiosCha/formal_atlas_of_semantics">Formal Atlas</a> of formalised semantic theories (<a href="https://arxiv.org/abs/2611.19509">paper</a>), and work on Path Grammars and the generative capacity of Dynamic Syntax. I also study how prosodic prominence connects to meaning, most <a href="https://arxiv.org/abs/2611.25808">recently</a> in speech and language models.</dd>
+          <dt id="pillar-neurosymbolic">Neuro-symbolic reasoning</dt>
+          <dd>Methods that address what diagnosis reveals: inference that can be checked by a proof or refuted by a countermodel, grammar-constrained decoding, and finding which linguistic phenomena Transformers need symbolic support for.</dd>
         </dl>
-        <p class="muted"><strong>Open science.</strong> I release models, corpora, diagnostic datasets and code under open licences, including the HBMP NLI encoder, the Helsinki Prosody Corpus, NLU diagnostic suites, uncertainty-aware NLI code and contributions to Poro 34B.</p>
       </div>
     </section>
 
